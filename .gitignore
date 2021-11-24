@@ -1,3 +1,4 @@
 app/platforms/
 app/plugins/
 app/node_modules/
+backstage/node_modules/
