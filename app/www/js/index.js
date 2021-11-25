@@ -13,6 +13,9 @@ function onDeviceReady() {
             },
             source: null,
             connectInterval: 5000,
+            connectionStatus: 'offline',
+            index: 0,
+            localIndex: 0,
             messages: [
             ],
             replies: [
@@ -20,28 +23,46 @@ function onDeviceReady() {
         },
         methods: {
             sendReply: function(_reply){
-                this.messages.push({txt: _reply, type: "public"})
+                this.messages.push({txt: _reply.txt, type: "public"})
+                setTimeout(() => {
+                    this.messages.push({txt: _reply.reply, type: "georges"})
+                }, 2000)
+            },
+            displayMessages: function(_messages, _replies) {
+                if(this.localIndex < _messages.length){
+                    this.messages.push(_messages[this.localIndex])
+                    this.localIndex++
+
+                    setTimeout(() => {this.displayMessages(_messages, _replies)}, Math.random()*2000+500)
+                }else{
+                    this.replies = _replies
+                    this.localIndex = 0
+                }
             },
             connectToServer: function() {
                 console.log(`Connection to server ${this.remote.url}/${this.remote.endpoint}...`);
                 source = new EventSource(`http://${this.remote.url}/${this.remote.endpoint}`)
 
                 source.onopen = () => {
-                    console.log('...opened connection to remote server.')
+                    console.log('...opened connection to remote server!')
+                    this.connectionStatus = 'online'
                 }
     
                 source.onerror = () => {
                     console.log(`...failed to reach server, retrying.`);
-                    setTimeout(this.connectToServer, connectInterval)
+                    setTimeout(this.connectToServer, this.connectInterval)
                 }
     
                 source.onmessage = (event) => {
                     console.log(event)
+                    let content = JSON.parse(event.data)
+                    this.messages.push({txt: '', type: "separator"})
+                    this.displayMessages(content.messages, content.replies)
                 }   
             }
         },
         mounted: function(){
-            setTimeout(this.connectToServer, connectInterval)
+            setTimeout(this.connectToServer, this.connectInterval)
         }
     })
 }

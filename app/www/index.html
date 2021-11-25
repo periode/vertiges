@@ -45,22 +45,25 @@
 </head>
 
 <body>
-    <header>
-        <h1>georges</h1>
-    </header>
-
     <div id="app">
-        <div class="messages">
-            <div :class="'message '+ msg.type" v-for="msg in messages">{{ msg.txt }}</div>
-        </div>
-        <hr>
-        <div class="replies">
-            <button class="reply" v-for="reply in replies" @click="sendReply(reply)">
-                <span class="reply-text">{{ reply }}</span>
-            </button>
-        </div>
+        <header>
+            <h1>georges</h1>
+            <div class="connection-status">{{connectionStatus}}</div>
+        </header>
+
+        <main>
+            <div class="messages">
+                <div :class="'message '+ msg.type" v-for="msg in messages">{{ msg.txt }}</div>
+            </div>
+            <hr>
+            <div class="replies">
+                <button class="reply" v-for="reply in replies" @click="sendReply(reply)">
+                    <span class="reply-text">{{ reply.txt }}</span>
+                </button>
+            </div>
+        </main>
+        <!-- <footer></footer> -->
     </div>
-    <!-- <footer></footer> -->
 </body>
 
 </html>

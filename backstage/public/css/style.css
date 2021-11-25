@@ -35,6 +35,11 @@ footer{
     display: flex;
 }
 
+.error {
+    color: red;
+    font-weight: bold;
+}
+
 main{
     height: 85vh;
 }

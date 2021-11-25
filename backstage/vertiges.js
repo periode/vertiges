@@ -1,6 +1,8 @@
 const EventEmitter = require('events')
 const Stream = new EventEmitter()
 
+const messages = require('./messages')
+
 const express = require('express')
 const app = express()
 const port = 4000
@@ -20,11 +22,12 @@ app.get('/subscribe', (req, res) => {
 
     console.log('found client')
 
-    Stream.on("push", (evt, data) => {
-        console.log(`received from stream event: ${evt} and data ${data}`);
-        res.write('data: this is the text\n\n')
+    res.write('data: connected');
+
+    Stream.on("push", (evt) => {
+        console.log(`event received: ${evt}`);
+        res.write(`data: ${JSON.stringify(messages[evt])}\n\n`)
     })
-    
 
     res.on('close', () => {
         console.log('lost client')
@@ -32,7 +35,8 @@ app.get('/subscribe', (req, res) => {
     })
 })
 
-app.get('/publish', (req, res) => {
-    Stream.emit("push", "test")
-    res.send("sent to stream\n")
+app.get('/cue', (req, res) => {
+    let sequence_name = req.query.seqname
+    Stream.emit("push", `${sequence_name}`)
+    res.send(`Sent ${sequence_name} to event stream\n`)
 })
