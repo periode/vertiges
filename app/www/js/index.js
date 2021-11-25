@@ -7,43 +7,41 @@ function onDeviceReady() {
     app = new Vue({
         el: '#app',
         data: {
+            remote: {
+                url: 'localhost:4000',
+                endpoint: 'subscribe'
+            },
             source: null,
+            connectInterval: 5000,
             messages: [
-                {txt: "un jour on m'a demandé de me définir", type: "georges"},
-                {txt: "quelle connerie", type: "georges"},
-                {txt: "je suis", type: "georges"},
-                {txt: "jsais pas", type: "georges"},
-                {txt: "je suis", type: "georges"},
-                {txt: "je suis farid ayelem rahmouni, chorégraphe queer", type: "georges"},
             ],
             replies: [
-                "farid?",
-                "chorégraphe?",
-                "queer?"
             ]
         },
         methods: {
             sendReply: function(_reply){
                 this.messages.push({txt: _reply, type: "public"})
+            },
+            connectToServer: function() {
+                console.log(`Connection to server ${this.remote.url}/${this.remote.endpoint}...`);
+                source = new EventSource(`http://${this.remote.url}/${this.remote.endpoint}`)
+
+                source.onopen = () => {
+                    console.log('...opened connection to remote server.')
+                }
+    
+                source.onerror = () => {
+                    console.log(`...failed to reach server, retrying.`);
+                    setTimeout(this.connectToServer, connectInterval)
+                }
+    
+                source.onmessage = (event) => {
+                    console.log(event)
+                }   
             }
         },
         mounted: function(){
-            console.log('vue is ready');
-
-            source = new EventSource('http://localhost:4000/subscribe')
-
-            source.onopen = () => {
-                console.log('opened connection to remote server')
-            }
-
-            source.onerror = (err) => {
-                console.log(`error from source: ${error}`);
-                source.close()
-            }
-
-            source.onmessage = (event) => {
-                console.log(event)
-            }
+            setTimeout(this.connectToServer, connectInterval)
         }
     })
 }
