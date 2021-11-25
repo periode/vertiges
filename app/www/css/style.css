@@ -43,8 +43,10 @@ footer {
 }
 
 header{
+    position: relative;
     text-align: left;
     z-index: 2;
+    background-color: black;
     /* display: none; */
 }
 
@@ -97,6 +99,30 @@ hr{
 .georges{
     align-self: flex-start;
     text-align: left;
+}
+
+.audio-player {
+    width: 60vw;
+    height: 50px;
+    border: none;
+    background: none;
+    display: flex;
+}
+
+.audio-player img{
+    align-self: flex-start;
+    height: 100%;
+    cursor: pointer;
+}
+
+.img{
+    max-width: 60vw;
+    max-height: 50vh;
+}
+
+.img img{
+    height: 100%;
+    width: 100%;
 }
 
 .replies{

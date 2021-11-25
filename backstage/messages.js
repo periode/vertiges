@@ -2,12 +2,13 @@ const all_messages = {
     "identity": {
         "name": "identity",
         "messages": [
-            { txt: "un jour on m'a demandé de me définir", type: "georges" },
-            { txt: "quelle connerie", type: "georges" },
-            { txt: "je suis", type: "georges" },
-            { txt: "jsais pas", type: "georges" },
-            { txt: "je suis", type: "georges" },
-            { txt: "je suis farid ayelem rahmouni, chorégraphe queer", type: "georges" }
+            { type: 'txt', msg: "un jour on m'a demandé de me définir", sender: "georges", type: 'txt'},
+            { type: 'txt', msg: "quelle connerie", sender: "georges", type: 'txt'},
+            { type: 'txt', msg: "je suis", sender: "georges", type: 'txt'},
+            { type: 'txt', msg: "jsais pas", sender: "georges", type: 'txt'},
+            { type: 'txt', msg: "je suis", sender: "georges", type: 'txt'},
+            { type: "mp3", msg: "", src: './media/03-pnl-chang.mp3', sender: "georges"},
+            { type: 'txt', msg: "je suis farid ayelem rahmouni, chorégraphe queer", sender: "georges", type: 'txt' }
         ],
         "replies": [
             {
