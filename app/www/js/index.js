@@ -28,8 +28,7 @@ function onDeviceReady() {
             sendReply: function(_reply){
                 this.messages.push({txt: _reply.txt, type: "public"})
 
-                Array.from(document.getElementsByClassName('reply'))
-                    .map(el.disabled = el.disabled ? false : true)
+                toggleReplies()
 
                 fetch(`http://${this.remote.url}/reply?id=${_reply.id}`)
                 .then(res => {
@@ -48,8 +47,7 @@ function onDeviceReady() {
 
                     setTimeout(() => {this.displayMessages(_messages, _replies)}, Math.random()*2000+500)
                 }else{
-                    Array.from(document.getElementsByClassName('reply'))
-                        .map(el.disabled = el.disabled ? false : true)
+                    toggleReplies()
                     this.replies = _replies
                     this.localIndex = 0
                 }
@@ -85,4 +83,9 @@ function onDeviceReady() {
             setTimeout(this.connectToServer, this.connectInterval)
         }
     })
+}
+
+let toggleReplies = () => {
+    Array.from(document.getElementsByClassName('reply'))
+                    .map((el) => {el.disabled = el.disabled ? false : true})
 }

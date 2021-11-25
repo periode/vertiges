@@ -12,8 +12,10 @@
     - [x] set up timing
     - [x] send response
   - [ ] setup orchestrator page
-    - [ ] feature to send messages
-    - [ ] view voting results
+    - [x] feature to send messages
+    - [x] view voting results
       - [ ] automatically choose next sequence based on voting results
-    - [ ] display all possible messages to be sent
+    - [ ] reset voting results
+    - [ ] store a trace of each states
+    - [x] display all possible messages to be sent
   - [ ] setup performer page

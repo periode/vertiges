@@ -1,5 +1,6 @@
 const all_messages = {
     "identity": {
+        "name": "identity",
         "messages": [
             { txt: "un jour on m'a demandé de me définir", type: "georges" },
             { txt: "quelle connerie", type: "georges" },
@@ -35,19 +36,34 @@ const all_messages = {
 
 let picked = []
 
+module.exports.getAll = () => {
+    return all_messages
+}
+
 module.exports.setPicked = (_sequence) => {
+    if(_sequence == undefined){
+        console.error('You need to set a specific sequence!');
+        return
+    }
     picked.push(_sequence)
+    return picked
 }
 
 module.exports.pick = (_sequence) => {
+    if(_sequence == undefined){
+        console.error('You need to pick a specific sequence!');
+        return
+    }
     let results = []
     let replies = all_messages[_sequence].replies
+    let temp = []
     
     if(picked.length < replies.length - 3){
         while(results.length < 3){
             let i = Math.floor(Math.random()*replies.length)
             let reply = replies[i]
-            if(!picked.includes(reply.id)){
+            if(!temp.includes(reply.id) && !picked.includes(reply.id)){
+                temp.push(reply.id)
                 results.push(reply)
             }
         }

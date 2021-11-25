@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backstage | Vertiges de Georges</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="js/script.js"></script>
 </head>
+
 <body onload="init()">
-    <header>
-        <h1>backstage</h1>
-    </header>
-    <main>
-        <button onclick="cue('cue', 'seqname', 'identity')">start</button>
-    </main>
-    <footer>
-        <div>log:</div>
-        <div class="logger">
-            
-            <ul id="logger"></ul>
-        </div>
-    </footer>
+    <div id="app">
+        <header>
+            <h1>backstage</h1>
+        </header>
+        <main>
+            <!-- <button onclick="cue('cue', 'seqname', 'identity')">start</button> -->
+            <div class="state">
+                <div class="state-name">state</div>
+                <button @click="startPoll">start poll</button><button @click="endPoll">end poll</button>
+                <div class="results">
+                    <div class="result" v-for="(value, key) in results" :style="'order: '+value">{{key}} - ({{ value }})</div>
+                </div>
+            </div>
+            <div class="sequences">
+                <div class="sequence" v-for="seq in sequences" @click="cue('cue', 'seqname', seq.name)">
+                    <div class="sequence-name">{{ seq.name }}</div>
+                    <div class="messages">
+                        <div class="message" v-for="msg in seq.messages"> {{ msg.txt }}</div>
+                    </div>
+                    <hr>
+                    <div class="replies">
+                        <div class="reply" v-for="reply in seq.replies"> 
+                            {{ reply.txt }} -> {{ reply.reply }}</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <h2>log</h2>
+                <ul class="logger">
+                    <li v-for="log in logs" :class="'log '+log.type">{{ `[${log.ts}] ${log.msg}` }}</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
 </body>
+
 </html>

@@ -1,8 +1,8 @@
 const EventEmitter = require('events')
+EventEmitter.defaultMaxListeners = 100
 const Stream = new EventEmitter()
 
 const messages = require('./messages')
-
 const express = require('express')
 const app = express()
 const port = 4000
@@ -40,7 +40,7 @@ let votes = {}
 
 app.get('/reply', (req, res) => {
     console.log(`- received reply: ${req.query.id}`);
-    
+
     if(votes[req.query.id] == null)
         votes[req.query.id] = 1
     else
@@ -54,4 +54,12 @@ app.get('/cue', (req, res) => {
     let sequence_name = req.query.seqname
     Stream.emit("push", `${sequence_name}`)
     res.send(`- sent ${sequence_name} to event stream\n`)
+})
+
+app.get('/get-all', (req, res) => {
+    res.json(messages.getAll())
+})
+
+app.get('/poll', (req, res) => {
+    res.json(votes)
 })

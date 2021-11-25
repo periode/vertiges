@@ -25,25 +25,61 @@ header {
     height: 5vh;
 }
 
+main{
+    height: 80vh;
+}
+
+button{
+    height: fit-content;
+}
+
 footer{
-    height: 10vh;
+    height: 15vh;
+}
+
+.sequences, .state{
+    width: 50%;
+    min-width: 20%;
+}
+
+.results{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.sequence {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    padding:1rem;
+    cursor: pointer;
+    transition: 0.1s linear all;
+}
+
+.sequence:hover{
+    background-color: white;
+    color: black;
+}
+
+.sequence-name, .state-name {
+    font-size: 1.4em;
+    text-decoration: underline;
+    margin-bottom: 1rem;
 }
 
 .logger{
     width: 80vw;
     overflow: scroll;
     display: flex;
+    flex-direction: column-reverse;
+}
+
+
+.log{
+    font-style: 10px;
 }
 
 .error {
     color: red;
     font-weight: bold;
-}
-
-main{
-    height: 85vh;
-}
-
-button{
-    height: fit-content;
 }
