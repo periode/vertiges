@@ -57,7 +57,7 @@
             </div>
             <hr>
             <div class="replies">
-                <button class="reply" v-for="reply in replies" @click="sendReply(reply)">
+                <button disabled class="reply" v-for="reply in replies" @click="sendReply(reply)">
                     <span class="reply-text">{{ reply.txt }}</span>
                 </button>
             </div>

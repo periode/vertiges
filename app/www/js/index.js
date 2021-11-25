@@ -19,11 +19,24 @@ function onDeviceReady() {
             messages: [
             ],
             replies: [
+                {txt: ''},
+                {txt: ''},
+                {txt: ''}
             ]
         },
         methods: {
             sendReply: function(_reply){
                 this.messages.push({txt: _reply.txt, type: "public"})
+
+                Array.from(document.getElementsByClassName('reply'))
+                    .map(el.disabled = el.disabled ? false : true)
+
+                fetch(`http://${this.remote.url}/reply?id=${_reply.id}`)
+                .then(res => {
+                    console.log(res);
+                }).catch(err => {
+                    console.log(err);
+                })
                 setTimeout(() => {
                     this.messages.push({txt: _reply.reply, type: "georges"})
                 }, 2000)
@@ -35,6 +48,8 @@ function onDeviceReady() {
 
                     setTimeout(() => {this.displayMessages(_messages, _replies)}, Math.random()*2000+500)
                 }else{
+                    Array.from(document.getElementsByClassName('reply'))
+                        .map(el.disabled = el.disabled ? false : true)
                     this.replies = _replies
                     this.localIndex = 0
                 }
@@ -50,14 +65,19 @@ function onDeviceReady() {
     
                 source.onerror = () => {
                     console.log(`...failed to reach server, retrying.`);
+                    this.connectionStatus = 'connecting...'
                     setTimeout(this.connectToServer, this.connectInterval)
                 }
     
                 source.onmessage = (event) => {
                     console.log(event)
+                    
                     let content = JSON.parse(event.data)
-                    this.messages.push({txt: '', type: "separator"})
-                    this.displayMessages(content.messages, content.replies)
+                    console.log(content);
+                    if(content.messages){
+                        this.messages.push({txt: '', type: "separator"})
+                        this.displayMessages(content.messages, content.replies)
+                    }
                 }   
             }
         },

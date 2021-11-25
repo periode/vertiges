@@ -9,9 +9,11 @@
 - [ ] setup server
   - [x] setup server sent events (after getting a specific http request, the server sends back SSEs)
     - [x] basic events
-    - [ ] set up timing
-    - [ ] send response
+    - [x] set up timing
+    - [x] send response
   - [ ] setup orchestrator page
-    - [ ] basic loop
-    - [ ] feature to send stream of text (farid calls them layers) at any point
+    - [ ] feature to send messages
+    - [ ] view voting results
+      - [ ] automatically choose next sequence based on voting results
+    - [ ] display all possible messages to be sent
   - [ ] setup performer page
