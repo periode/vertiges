@@ -20,3 +20,8 @@ quantifier mon salaire. en général, plateau c'est 15e de l'heure, recherche c'
 ## tech
 
 - utiliser [cordova](http://cordova.apache.org/#getstarted)
+
+## drama
+
+la narration digitale peut etre ou pas superposée à ce qui se passe sur le plateau:
+- c'est plus une légende qu'une illustration.

@@ -22,7 +22,13 @@ header, footer, main{
 }
 
 header {
-    height: 5vh;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+header h1, header h2{
+    margin: 0;
 }
 
 main{
@@ -30,7 +36,20 @@ main{
 }
 
 button{
-    height: fit-content;
+    background-color: #eee;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    transform: all 0.1s linear;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover{
+    background-color: white;
 }
 
 footer{

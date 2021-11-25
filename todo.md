@@ -2,6 +2,9 @@
 
 - [ ] app
   - [ ] audio messages
+    - [ ] auto playback
+    - [ ] sse kill audio
+    - [ ] audio messages can happen as messages and as replies
   - [ ] photos
   - [ ] make typing animation
   - [ ] add vibrate on receive
@@ -14,8 +17,10 @@
   - [ ] setup orchestrator page
     - [x] feature to send messages
     - [x] view voting results
+      - [ ] make the start/end poll button only one button
       - [ ] automatically choose next sequence based on voting results
-    - [ ] reset voting results
+    - [x] reset voting results
     - [ ] store a trace of each states
     - [x] display all possible messages to be sent
   - [ ] setup performer page
+    - [ ] only display the winning vote

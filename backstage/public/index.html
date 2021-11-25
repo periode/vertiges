@@ -15,6 +15,7 @@
     <div id="app">
         <header>
             <h1>backstage</h1>
+            <h2><a href="performer.html" target="_blank" rel="noopener noreferrer">plateau</a></h2>
         </header>
         <main>
             <!-- <button onclick="cue('cue', 'seqname', 'identity')">start</button> -->
@@ -26,7 +27,7 @@
                 </div>
             </div>
             <div class="sequences">
-                <div class="sequence" v-for="seq in sequences" @click="cue('cue', 'seqname', seq.name)">
+                <div class="sequence" v-for="seq in sequences" @click="cue('cue', 'sequence', seq.name)">
                     <div class="sequence-name">{{ seq.name }}</div>
                     <div class="messages">
                         <div class="message" v-for="msg in seq.messages"> {{ msg.txt }}</div>

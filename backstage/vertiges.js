@@ -7,6 +7,8 @@ const express = require('express')
 const app = express()
 const port = 4000
 
+let trace = []
+
 app.use(express.static('./public'))
 
 app.listen(port, () => {
@@ -47,13 +49,14 @@ app.get('/reply', (req, res) => {
         votes[req.query.id] += 1
 
     console.log(`- vote: ${JSON.stringify(votes)}`);
-    res.send('registered reply')
+    res.send(`registered reply: ${req.query.id}`)
 })
 
 app.get('/cue', (req, res) => {
-    let sequence_name = req.query.seqname
-    Stream.emit("push", `${sequence_name}`)
-    res.send(`- sent ${sequence_name} to event stream\n`)
+    let seq = req.query.sequence
+    Stream.emit("push", `${seq}`)
+    trace.push(seq)
+    res.send(`sent ${seq} to event stream\n`)
 })
 
 app.get('/get-all', (req, res) => {
@@ -62,4 +65,9 @@ app.get('/get-all', (req, res) => {
 
 app.get('/poll', (req, res) => {
     res.json(votes)
+})
+
+app.get('/reset', (req, res) => {
+    votes = []
+    res.sendStatus(200)
 })

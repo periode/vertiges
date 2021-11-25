@@ -25,6 +25,18 @@ let init = () => {
                 let timestamp = `${this.time.getHours()}:${this.time.getMinutes()}:${this.time.getSeconds()}`
                 this.logs.push({ts: timestamp, type: _type, msg: _msg})
             },
+            resetVotes: function(){
+                fectch('/reset')
+                .then((res) => {
+                    if(res.ok)
+                        this.log('info','succesfully reset votes')
+                    else
+                        this.log('error', `error resetting votes -  ${res.status}`)
+                })
+                .catch(err => {
+                    this.log('error', `caught error when resetting votes - ${err}`)
+                })
+            },
             poll: function() {
                 fetch('/poll')
                 .then((res => {return res.json()}))
