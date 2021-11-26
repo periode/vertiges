@@ -18,14 +18,14 @@ function onDeviceReady() {
             localIndex: 0,
             messages: [
                 { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "georges" },
-                { msg: "quelle connerie", type: "txt", sender: "georges"},
-                { msg: "", type: "img", sender: "georges", src: './img/test.png'},
-                { type: "mp3", msg: "", src: './media/03-pnl-chang.mp3', sender: "georges"},
+                { msg: "quelle connerie", type: "txt", sender: "georges" },
+                { msg: "", type: "img", sender: "georges", src: './img/test.png' },
+                { type: "mp3", msg: "", src: './media/03-pnl-chang.mp3', sender: "georges" },
             ],
             replies: [
-                { txt: '' },
-                { txt: '' },
-                { txt: '' }
+                { txt: '', id: 'identity' },
+                { txt: '', id: 'class' },
+                { txt: '', id: 'police' }
             ]
         },
         methods: {
@@ -36,17 +36,25 @@ function onDeviceReady() {
 
                 this.connectionStatus = 'typing...'
 
-                fetch(`http://${this.remote.url}/reply?id=${_reply.id}`)
+                fetch(`http://${this.remote.url}/reply?id=${_reply.id}`,
+                    {
+                        mode: 'cors',
+                        headers: {
+                            'Authorization': 'Basic vertiges',
+                            'Access-Control-Allow-Origin': '*',
+                        }
+                    })
                     .then(res => {
                         console.log(res);
                     }).catch(err => {
                         console.log(err);
                     })
 
-                setTimeout(() => {
-                    this.messages.push({ msg: _reply.reply, sender: "georges", type: 'txt', ts: this.getTimestamp() })
-                    this.connectionStatus = 'online'
-                }, 2000)
+                if (_reply.reply)
+                    setTimeout(() => {
+                        this.messages.push({ msg: _reply.reply, sender: "georges", type: 'txt', ts: this.getTimestamp() })
+                        this.connectionStatus = 'online'
+                    }, 2000)
             },
             displayMessages: function (_messages, _replies) {
                 if (this.localIndex < _messages.length) {
@@ -64,23 +72,23 @@ function onDeviceReady() {
                     this.connectionStatus = 'online'
                 }
             },
-            getTimestamp: function() {
+            getTimestamp: function () {
                 let d = new Date()
-                let h = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours()
-                let m = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes()
+                let h = d.getHours().toString().length == 1 ? '0' + d.getHours() : d.getHours()
+                let m = d.getMinutes().toString().length == 1 ? '0' + d.getMinutes() : d.getMinutes()
                 let ts = `${h}:${m}`
                 return ts
             },
-            toggleAudio: function(evt) {
+            toggleAudio: function (evt) {
                 let player = evt.target.nextElementSibling
 
-                if(!player.paused){
+                if (!player.paused) {
                     player.pause()
                     evt.target.src = './img/play.svg'
                 } else {
                     player.play()
                     evt.target.src = './img/pause.svg'
-                }                   
+                }
             },
             connectToServer: function () {
                 console.log(`Connection to server ${this.remote.url}/${this.remote.endpoint}...`);
@@ -94,7 +102,7 @@ function onDeviceReady() {
                 source.onerror = (err) => {
                     console.log(`...failed to reach server (${err}), retrying.`);
                     this.connectionStatus = 'connecting...'
-                    setTimeout(this.connectToServer, this.connectInterval*1000)
+                    setTimeout(this.connectToServer, this.connectInterval * 1000)
                 }
 
                 source.onmessage = (event) => {

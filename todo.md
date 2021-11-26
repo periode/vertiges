@@ -19,8 +19,8 @@
     - [x] set up timing
     - [x] send response
     - [ ] setup proper logs
-    - [ ] setup header auth
-  - [ ] setup orchestrator page
+    - [x] setup header auth
+  - [x] setup orchestrator page
     - [x] feature to send messages
     - [x] view voting results
       - [x] make the start/end poll button only one button

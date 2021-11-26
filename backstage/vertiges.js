@@ -5,15 +5,20 @@ const fs = require('fs')
 
 const messages = require('./messages')
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const port = 4000
 
 let trace = []
 let next_sequence = null
 
+const AUTH_PW = 'vertiges'
+
 EventEmitter.defaultMaxListeners = 100
 
 app.use(express.static('./public'))
+app.use('*', cors());
+
 
 app.listen(port, () => {
     console.log(`VERTIGES\n- listening on ${port}`)
@@ -28,7 +33,7 @@ app.get('/subscribe', (req, res) => {
 
     console.log('- found client')
 
-    res.write(`data: ${JSON.stringify({connected: true})}\n\n`);
+    res.write(`data: ${JSON.stringify({ connected: true })}\n\n`);
 
     Stream.on("push", (evt) => {
         console.log(`- event received: ${evt}`);
@@ -45,9 +50,14 @@ app.get('/subscribe', (req, res) => {
 let votes = {}
 
 app.get('/reply', (req, res) => {
+    if (!isAuthorized(req)) {
+        res.sendStatus(403)
+        return
+    }
+
     console.log(`- received reply: ${req.query.id}`);
 
-    if(votes[req.query.id] == null)
+    if (votes[req.query.id] == null)
         votes[req.query.id] = 1
     else
         votes[req.query.id] += 1
@@ -57,22 +67,33 @@ app.get('/reply', (req, res) => {
 })
 
 app.get('/cue', (req, res) => {
+    if (!isAuthorized(req)) {
+        res.sendStatus(403)
+        return
+    }
+
     let seq = req.query.sequence
 
-    if(seq == undefined){
+    if (seq == undefined) {
         res.status(400).send('the sequence parameter is not defined\n')
         return
     }
 
     Stream.emit("push", `${seq}`)
     trace.push(`launched cue: ${seq}`)
+    votes = []
     res.send(`sent ${seq} to event stream\n`)
 })
 
 app.get('/set', (req, res) => {
+    if (!isAuthorized(req)) {
+        res.sendStatus(403)
+        return
+    }
+
     let seq = req.query.sequence
 
-    if(seq == undefined){
+    if (seq == undefined) {
         res.status(400).send('the sequence parameter is not defined\n')
         return
     }
@@ -81,7 +102,7 @@ app.get('/set', (req, res) => {
     next_sequence = seq
 
     fs.writeFile('trace.txt', JSON.stringify(trace), (err) => {
-        if(err)
+        if (err)
             console.log(`-- error writing trace: ${err}`)
         else
             console.log('- success writing trace to file')
@@ -93,7 +114,7 @@ app.get('/set', (req, res) => {
 
 //-- for farid to get the next sequence
 app.get('/status', (req, res) => {
-    res.json({next: next_sequence})
+    res.json({ next: next_sequence })
 })
 
 app.get('/get-all', (req, res) => {
@@ -108,7 +129,14 @@ app.get('/poll', (req, res) => {
     res.json(votes)
 })
 
-app.get('/reset', (req, res) => {
-    votes = []
-    res.sendStatus(200)
-})
+let isAuthorized = (req) => {
+    if (!req.get('Authorization'))
+        return false
+
+    let pw = req.get('Authorization').split("Basic")[1].trim()
+
+    if (!pw)
+        return false
+    else if (pw === AUTH_PW)
+        return true
+}
