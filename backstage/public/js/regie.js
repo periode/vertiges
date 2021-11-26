@@ -7,7 +7,11 @@ let init = () => {
             time: null,
             sequences: [],
             pollInterval: null,
-            results: {}
+            results: {
+                'identity': 4,
+                'class': 2
+            },
+            next: null
         },
         methods: {
             cue: function (_cue, _query, _param) {
@@ -23,7 +27,7 @@ let init = () => {
             log: function (_type, _msg) {
                 this.time = new Date()
                 let timestamp = `${this.time.getHours()}:${this.time.getMinutes()}:${this.time.getSeconds()}`
-                this.logs.push({ts: timestamp, type: _type, msg: _msg})
+                this.logs.unshift({ts: timestamp, type: _type, msg: _msg})
             },
             resetVotes: function(){
                 fectch('/reset')
@@ -50,13 +54,25 @@ let init = () => {
                     _evt.target.innerText = 'stop poll'
                 }else{
                     clearInterval(this.pollInterval)
-                    this.log('info', 'stopped polling')
+                    this.log('info', 'cleared poll interval')
                     _evt.target.innerText = 'start poll'
                 }
             },
-            endPoll: function() {
-                clearInterval(this.pollInterval)
-                this.log('info', 'cleared poll interval')
+            setNext: function(_next) {
+                if(_next != ''){
+                    this.log('info', `set next sequence to: ${_next}`);
+                    fetch(`/set?sequence=${_next}`)
+                    .then(res => {
+                        if(res.ok)
+                            this.log('info', `successfully set ${_next}`)
+                        else
+                            this.log('error', `could not set next sequence: ${res.status}`)
+                        this.next = _next
+                    })
+                }else{
+                    this.log('error', `sequence to be set is invalid: ${_next}`)
+                }
+
             }
         },
         mounted: function() {
@@ -65,7 +81,8 @@ let init = () => {
             fetch('/get-all').then(res => {
                 return res.json()
             }).then(data => {
-                this.sequences = data
+                this.sequences = data.sequences
+                this.next = data.next
             })
         }
     })

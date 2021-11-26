@@ -19,14 +19,16 @@
     - [x] set up timing
     - [x] send response
     - [ ] setup proper logs
+    - [ ] setup header auth
   - [ ] setup orchestrator page
     - [x] feature to send messages
     - [x] view voting results
       - [x] make the start/end poll button only one button
-      - [ ] automatically choose next sequence based on voting results
+      - [x] automatically choose next sequence based on voting results
+    - [x] view current sequence (starts on page init)
     - [x] reset voting results
     - [x] store a trace of each states
-      - [ ] save trace to disk
+      - [x] save trace to disk
     - [x] display all possible messages to be sent
   - [x] setup performer page
     - [x] only display the winning vote

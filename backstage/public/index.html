@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backstage | Vertiges de Georges</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/vue.dev.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
+    <script src="js/regie.js"></script>
 </head>
 
 <body onload="init()">
@@ -21,10 +22,20 @@
             <!-- <button onclick="cue('cue', 'seqname', 'identity')">start</button> -->
             <div class="state">
                 <h2>STATE</h2>
+
+                <div class="next">
+                    <h3>Séquence</h3>
+                    <div>→ {{ next ? next : 'inconnue' }}</div>
+                </div>
+
                 <button class="poll-btn" @click="togglePoll($event)">start poll</button>
                 <div class="results">
                     <div v-if="Object.keys(results).length === 0">No results found.</div>
-                    <div class="result" v-for="(value, key) in results" :style="'order: '+value">{{key}} - ({{ value }})</div>
+                    <div class="result" v-for="(value, key) in results" :style="'order: '+value">
+                        <div>{{ key }}</div>
+                        <div>{{ value }}</div>
+                        <button @click="setNext(key)">set next</button>
+                    </div>
                 </div>
             </div>
 
@@ -41,7 +52,7 @@
                     </div>
                     <hr>
                     <div class="replies">
-                        <div class="reply" v-for="reply in seq.replies"> 
+                        <div class="reply" v-for="reply in seq.replies">
                             <div>{{ reply.txt }}</div>
                             <div>{{ reply.reply }}</div>
                         </div>
@@ -51,7 +62,7 @@
         </main>
         <footer>
             <div>
-                <h2>log</h2>
+                <h2>LOG</h2>
                 <ul class="logger">
                     <li v-for="log in logs" :class="'log '+log.type">{{ `[${log.ts}] ${log.msg}` }}</li>
                 </ul>

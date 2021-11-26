@@ -1,6 +1,7 @@
 const EventEmitter = require('events')
-EventEmitter.defaultMaxListeners = 100
 const Stream = new EventEmitter()
+
+const fs = require('fs')
 
 const messages = require('./messages')
 const express = require('express')
@@ -9,6 +10,8 @@ const port = 4000
 
 let trace = []
 let next_sequence = null
+
+EventEmitter.defaultMaxListeners = 100
 
 app.use(express.static('./public'))
 
@@ -62,7 +65,7 @@ app.get('/cue', (req, res) => {
     }
 
     Stream.emit("push", `${seq}`)
-    trace.push(seq)
+    trace.push(`launched cue: ${seq}`)
     res.send(`sent ${seq} to event stream\n`)
 })
 
@@ -74,7 +77,15 @@ app.get('/set', (req, res) => {
         return
     }
 
+    trace.push(`armed cue: ${seq}`)
     next_sequence = seq
+
+    fs.writeFile('trace.txt', JSON.stringify(trace), (err) => {
+        if(err)
+            console.log(`-- error writing trace: ${err}`)
+        else
+            console.log('- success writing trace to file')
+    })
 
     //-- send SIGINT event to potential public audio
     res.sendStatus(200)
@@ -86,7 +97,11 @@ app.get('/status', (req, res) => {
 })
 
 app.get('/get-all', (req, res) => {
-    res.json(messages.getAll())
+    let payload = {
+        sequences: messages.getAll(),
+        next: next_sequence
+    }
+    res.json(payload)
 })
 
 app.get('/poll', (req, res) => {
