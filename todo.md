@@ -13,12 +13,12 @@
   - [ ] add vibrate on receive
   - [ ] think about what happens at the end of the performance
   - [x] reconnect logic
-- [ ] setup server
+- [x] setup server
   - [x] setup server sent events (after getting a specific http request, the server sends back SSEs)
     - [x] basic events
     - [x] set up timing
     - [x] send response
-    - [ ] setup proper logs
+    - [x] setup proper logs
     - [x] setup header auth
   - [x] setup orchestrator page
     - [x] feature to send messages
