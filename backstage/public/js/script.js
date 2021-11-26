@@ -7,7 +7,7 @@ let init = () => {
             time: null,
             sequences: [],
             pollInterval: null,
-            results: []
+            results: {}
         },
         methods: {
             cue: function (_cue, _query, _param) {
@@ -43,9 +43,16 @@ let init = () => {
                 .then(data => this.results = data)
                 .catch(err => this.log('error', JSON.stringify(err)))
             },
-            startPoll: function() {
-                this.pollInterval = setInterval(this.poll, 1000)
-                this.log('info', 'started polling')
+            togglePoll: function(_evt) {
+                if(this.pollInterval == null){
+                    this.pollInterval = setInterval(this.poll, 1000)
+                    this.log('info', 'started polling')
+                    _evt.target.innerText = 'stop poll'
+                }else{
+                    clearInterval(this.pollInterval)
+                    this.log('info', 'stopped polling')
+                    _evt.target.innerText = 'start poll'
+                }
             },
             endPoll: function() {
                 clearInterval(this.pollInterval)

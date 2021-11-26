@@ -8,6 +8,7 @@ const app = express()
 const port = 4000
 
 let trace = []
+let next_sequence = null
 
 app.use(express.static('./public'))
 
@@ -54,7 +55,7 @@ app.get('/reply', (req, res) => {
 
 app.get('/cue', (req, res) => {
     let seq = req.query.sequence
-    
+
     if(seq == undefined){
         res.status(400).send('the sequence parameter is not defined\n')
         return
@@ -63,6 +64,25 @@ app.get('/cue', (req, res) => {
     Stream.emit("push", `${seq}`)
     trace.push(seq)
     res.send(`sent ${seq} to event stream\n`)
+})
+
+app.get('/set', (req, res) => {
+    let seq = req.query.sequence
+
+    if(seq == undefined){
+        res.status(400).send('the sequence parameter is not defined\n')
+        return
+    }
+
+    next_sequence = seq
+
+    //-- send SIGINT event to potential public audio
+    res.sendStatus(200)
+})
+
+//-- for farid to get the next sequence
+app.get('/status', (req, res) => {
+    res.json({next: next_sequence})
 })
 
 app.get('/get-all', (req, res) => {

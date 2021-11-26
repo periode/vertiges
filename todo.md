@@ -7,23 +7,26 @@
     - [ ] sse kill audio
     - [x] audio messages can happen as messages and as replies
   - [x] photos
-  - [ ] make typing status
+  - [x] make typing status
     - [ ] animation
   - [x] add time on every message
   - [ ] add vibrate on receive
+  - [ ] think about what happens at the end of the performance
   - [x] reconnect logic
 - [ ] setup server
   - [x] setup server sent events (after getting a specific http request, the server sends back SSEs)
     - [x] basic events
     - [x] set up timing
     - [x] send response
+    - [ ] setup proper logs
   - [ ] setup orchestrator page
     - [x] feature to send messages
     - [x] view voting results
-      - [ ] make the start/end poll button only one button
+      - [x] make the start/end poll button only one button
       - [ ] automatically choose next sequence based on voting results
     - [x] reset voting results
-    - [ ] store a trace of each states
+    - [x] store a trace of each states
+      - [ ] save trace to disk
     - [x] display all possible messages to be sent
-  - [ ] setup performer page
-    - [ ] only display the winning vote
+  - [x] setup performer page
+    - [x] only display the winning vote

@@ -22,8 +22,9 @@ header, footer, main{
 }
 
 header {
-    flex-direction: column;
-    margin-bottom: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5rem;
     padding: 1rem;
 }
 
@@ -33,6 +34,10 @@ header h1, header h2{
 
 main{
     height: 80vh;
+}
+
+main h2{
+    margin-bottom: 2rem;
 }
 
 button{
@@ -53,7 +58,20 @@ button:hover{
 }
 
 footer{
+    position: absolute;
+    bottom: 0;
+    left: 5vw;
     height: 15vh;
+}
+
+a:visited{
+    color: white;
+}
+
+.poll-btn{
+    width: 80%;
+    min-width: 100px;
+    margin: 0;
 }
 
 .sequences, .state{
@@ -67,12 +85,35 @@ footer{
 }
 
 .sequence {
-    border: 1px solid white;
+    border-left: 1px solid white;
     background-color: black;
     color: white;
     padding:1rem;
     cursor: pointer;
     transition: 0.1s linear all;
+}
+
+.message{
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: flex;
+}
+
+.type{
+    width: 10%;
+}
+
+.msg{
+    text-align: left;
+    width: 50%;   
+}
+
+.src {
+    width: 30%;
+}
+
+.replies{
+    display: flex;
 }
 
 .sequence:hover{
