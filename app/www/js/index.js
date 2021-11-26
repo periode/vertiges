@@ -12,7 +12,7 @@ function onDeviceReady() {
                 endpoint: 'subscribe'
             },
             source: null,
-            connectInterval: 5000,
+            connectInterval: 5,
             connectionStatus: 'offline',
             index: 0,
             localIndex: 0,
@@ -30,9 +30,11 @@ function onDeviceReady() {
         },
         methods: {
             sendReply: function (_reply) {
-                this.messages.push({ msg: _reply.txt, sender: "public" })
+                this.messages.push({ msg: _reply.txt, sender: "public", ts: this.getTimestamp() })
 
                 toggleReplies()
+
+                this.connectionStatus = 'typing...'
 
                 fetch(`http://${this.remote.url}/reply?id=${_reply.id}`)
                     .then(res => {
@@ -40,17 +42,17 @@ function onDeviceReady() {
                     }).catch(err => {
                         console.log(err);
                     })
+
                 setTimeout(() => {
-                    this.messages.push({ msg: _reply.reply, sender: "georges", type: 'txt' })
+                    this.messages.push({ msg: _reply.reply, sender: "georges", type: 'txt', ts: this.getTimestamp() })
+                    this.connectionStatus = 'online'
                 }, 2000)
             },
             displayMessages: function (_messages, _replies) {
                 if (this.localIndex < _messages.length) {
-                    this.messages.push({
-                        type: 'txt',
-                        msg: _messages[this.localIndex].msg,
-                        src:_messages[this.localIndex].src
-                    })
+                    this.connectionStatus = 'typing...'
+                    _messages[this.localIndex].ts = this.getTimestamp()
+                    this.messages.push(_messages[this.localIndex])
                     this.localIndex++
 
                     setTimeout(() => { this.displayMessages(_messages, _replies) }, Math.random() * 2000 + 500)
@@ -58,7 +60,16 @@ function onDeviceReady() {
                     toggleReplies()
                     this.replies = _replies
                     this.localIndex = 0
+
+                    this.connectionStatus = 'online'
                 }
+            },
+            getTimestamp: function() {
+                let d = new Date()
+                let h = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours()
+                let m = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes()
+                let ts = `${h}:${m}`
+                return ts
             },
             toggleAudio: function(evt) {
                 let player = evt.target.nextElementSibling
@@ -80,17 +91,17 @@ function onDeviceReady() {
                     this.connectionStatus = 'online'
                 }
 
-                source.onerror = () => {
-                    console.log(`...failed to reach server, retrying.`);
+                source.onerror = (err) => {
+                    console.log(`...failed to reach server (${err}), retrying.`);
                     this.connectionStatus = 'connecting...'
-                    setTimeout(this.connectToServer, this.connectInterval)
+                    setTimeout(this.connectToServer, this.connectInterval*1000)
                 }
 
                 source.onmessage = (event) => {
                     console.log(event)
 
                     let content = JSON.parse(event.data)
-                    console.log(content);
+                    // console.log(content);
                     if (content.messages) {
                         this.messages.push({ txt: '', type: "separator" })
                         this.displayMessages(content.messages, content.replies)
@@ -99,7 +110,8 @@ function onDeviceReady() {
             }
         },
         mounted: function () {
-            setTimeout(this.connectToServer, this.connectInterval)
+            this.connectToServer()
+            console.log(this.getTimestamp());
         }
     })
 }

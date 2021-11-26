@@ -54,6 +54,12 @@ app.get('/reply', (req, res) => {
 
 app.get('/cue', (req, res) => {
     let seq = req.query.sequence
+    
+    if(seq == undefined){
+        res.status(400).send('the sequence parameter is not defined\n')
+        return
+    }
+
     Stream.emit("push", `${seq}`)
     trace.push(seq)
     res.send(`sent ${seq} to event stream\n`)

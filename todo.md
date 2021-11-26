@@ -1,14 +1,15 @@
 # todo
 
 - [ ] app
-  - [ ] audio messages
+  - [x] audio messages
     - [ ] auto playback
     - [ ] audio histogram -> représentation du temps
     - [ ] sse kill audio
-    - [ ] audio messages can happen as messages and as replies
-  - [ ] photos
-  - [ ] make typing animation
-  - [ ] add time on every message
+    - [x] audio messages can happen as messages and as replies
+  - [x] photos
+  - [ ] make typing status
+    - [ ] animation
+  - [x] add time on every message
   - [ ] add vibrate on receive
   - [x] reconnect logic
 - [ ] setup server
