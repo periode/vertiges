@@ -24,4 +24,9 @@ quantifier mon salaire. en général, plateau c'est 15e de l'heure, recherche c'
 ## drama
 
 la narration digitale peut etre ou pas superposée à ce qui se passe sur le plateau:
+
 - c'est plus une légende qu'une illustration.
+
+## questions
+
+- qu'est-ce qu'il se passe quand on a fini fini de jouer un audio? repart a 0? disparait?

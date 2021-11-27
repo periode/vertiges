@@ -28,7 +28,7 @@ app.listen(port, () => {
 })
 
 app.get('/subscribe', (req, res) => {
-    log('info', 'GET /subscribe')
+    log('info', `GET /subscribe`)
     res.setHeader('Cache-Control', 'no-cache')
     res.setHeader('Content-Type', 'text/event-stream')
     res.setHeader('Access-Control-Allow-Origin', '*')
@@ -46,6 +46,11 @@ app.get('/subscribe', (req, res) => {
         res.write(`data: ${JSON.stringify(payload)}\n\n`)
     })
 
+    Stream.on("mute", () => {
+        log('debug', `writing SSE: mute`);
+        res.write(`data: ${JSON.stringify({mute: true})}\n\n`)
+    })
+
     res.on('close', () => {
         total_clients--
         log('debug', `lost client, total: ${total_clients}`)
@@ -56,7 +61,7 @@ app.get('/subscribe', (req, res) => {
 let votes = {}
 
 app.get('/reply', (req, res) => {
-    log('info', 'GET /reply')
+    log('info', `GET /reply`)
     if (!isAuthorized(req)) {
         res.sendStatus(403)
         return
@@ -74,7 +79,7 @@ app.get('/reply', (req, res) => {
 })
 
 app.get('/cue', (req, res) => {
-    log('info', 'GET /cue')
+    log('info', `GET /cue`)
     if (!isAuthorized(req)) {
         res.sendStatus(403)
         return
@@ -96,7 +101,7 @@ app.get('/cue', (req, res) => {
 })
 
 app.get('/set', (req, res) => {
-    log('info', 'GET /set')
+    log('info', `GET /set`)
     if (!isAuthorized(req)) {
         res.sendStatus(403)
         return
@@ -127,12 +132,12 @@ app.get('/set', (req, res) => {
 
 //-- for farid to get the next sequence
 app.get('/status', (req, res) => {
-    log('info', 'GET /status')
+    log('info', `GET /status`)
     res.json({ next: next_sequence })
 })
 
 app.get('/get-all', (req, res) => {
-    log('info', 'GET /get-all')
+    log('info', `GET /get-all`)
     let payload = {
         sequences: messages.getAll(),
         next: next_sequence
@@ -141,8 +146,19 @@ app.get('/get-all', (req, res) => {
 })
 
 app.get('/poll', (req, res) => {
-    log('info', 'GET /poll')
+    log('info', `GET /poll`)
     res.json(votes)
+})
+
+app.get('/mute', (req, res) => {
+    log('info', `GET /mute`)
+    if (!isAuthorized(req)) {
+        res.sendStatus(403)
+        return
+    }
+
+    Stream.emit("mute")
+    res.sendStatus(200)
 })
 
 let isAuthorized = (req) => {

@@ -61,8 +61,12 @@
 
                     <!-- audio -->
                     <button  @click='toggleAudio($event)' class="audio-player" v-if="msg.type == 'mp3'">
-                        <img src="./img/play.svg" alt="play/pause by Helena R. Olmo from the Noun Project" srcset="">                        
+                        <img src="./img/play.svg" alt="play/pause by Helena R. Olmo from the Noun Project" srcset="">
                         <audio :src="msg.src"></audio>
+                        <div class="audio-visualizer">
+                            <div class="timeline"></div>
+                            <div class="marker"></div>
+                        </div>
                     </button>
 
                     <div>

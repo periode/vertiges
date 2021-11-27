@@ -100,6 +100,10 @@ hr {
     text-align: left;
 }
 
+.mp3 {
+    padding: 8px 8px 0px 0px;
+}
+
 .audio-player {
     width: 60vw;
     height: 50px;
@@ -112,6 +116,28 @@ hr {
     align-self: flex-start;
     height: 100%;
     cursor: pointer;
+}
+
+.audio-visualizer {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    position: relative;
+}
+
+.timeline {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    align-self: center;
+}
+
+.marker {
+    width: 3px;
+    height: 40%;
+    background-color: black;
+    align-self: center;
+    position: absolute;
 }
 
 .img {
@@ -135,7 +161,7 @@ hr {
     text-align: right;
 }
 
-.public .timestamp{
+.public .timestamp {
     text-align: right;
 }
 

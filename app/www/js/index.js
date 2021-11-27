@@ -14,7 +14,7 @@ function onDeviceReady() {
             source: null,
             connectInterval: 5,
             connectionStatus: 'offline',
-            index: 0,
+            hasStarted: false,
             localIndex: 0,
             messages: [
                 { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "georges" },
@@ -81,6 +81,17 @@ function onDeviceReady() {
             },
             toggleAudio: function (evt) {
                 let player = evt.target.nextElementSibling
+                let timeline = player.nextElementSibling
+
+                player.ontimeupdate = (evt) => {
+                    // console.log(evt.timeStamp);
+                    let progress  = (evt.timeStamp/10) / player.duration
+                    timeline.children[1].style.left = `${progress}%`
+                }
+
+                player.oneneded  = () => {
+                    player.src = ''
+                }
 
                 if (!player.paused) {
                     player.pause()
@@ -109,10 +120,18 @@ function onDeviceReady() {
                     console.log(event)
 
                     let content = JSON.parse(event.data)
+                    console.log(content);
                     // console.log(content);
                     if (content.messages) {
                         this.messages.push({ txt: '', type: "separator" })
                         this.displayMessages(content.messages, content.replies)
+                    }else if(content.mute){
+                        let players = document.querySelectorAll('audio')
+                        for(let player of players){
+                            player.pause()
+                            player.src = ''
+                        }
+                            
                     }
                 }
             }

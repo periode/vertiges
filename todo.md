@@ -3,8 +3,9 @@
 - [ ] app
   - [x] audio messages
     - [ ] auto playback
-    - [ ] audio histogram -> représentation du temps
-    - [ ] sse kill audio
+      - [ ] this implies an initial user event
+    - [x] audio histogram -> représentation du temps
+    - [x] sse kill audio
     - [x] audio messages can happen as messages and as replies
   - [x] photos
   - [x] make typing status
