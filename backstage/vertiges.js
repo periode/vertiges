@@ -43,12 +43,20 @@ app.get('/subscribe', (req, res) => {
     Stream.on("push", (evt) => {
         log('debug', `writing SSE: ${evt}`);
         let payload = messages.pick(evt)
-        res.write(`data: ${JSON.stringify(payload)}\n\n`)
+	    if(!res.writeableFinished && !res.writableEnded)    
+	        res.write(`data: ${JSON.stringify(payload)}\n\n`)
     })
 
     Stream.on("mute", () => {
         log('debug', `writing SSE: mute`);
-        res.write(`data: ${JSON.stringify({mute: true})}\n\n`)
+	    if(!res.writeableFinished && !res.writableEnded)
+	        res.write(`data: ${JSON.stringify({mute: true})}\n\n`)
+    })
+
+    Stream.on("play", () => {
+        log('debug', `writing SSE: play`);
+	    if(!res.writeableFinished && !res.writableEnded)
+	        res.write(`data: ${JSON.stringify({play: true})}\n\n`)
     })
 
     res.on('close', () => {
@@ -69,10 +77,13 @@ app.get('/reply', (req, res) => {
 
     log('debug', `received reply: ${req.query.id}`);
 
-    if (votes[req.query.id] == null)
-        votes[req.query.id] = 1
-    else
+    if (!(req.query.id in votes)){
+	    let new_entry = {}
+	    new_entry[req.query.id] = 1
+	    votes = {...votes, ...new_entry}
+    }else{
         votes[req.query.id] += 1
+    }
 
     log('debug', `total votes: ${JSON.stringify(votes)}`);
     res.send(`registered reply: ${req.query.id}`)
@@ -158,6 +169,17 @@ app.get('/mute', (req, res) => {
     }
 
     Stream.emit("mute")
+    res.sendStatus(200)
+})
+
+app.get('/play', (req, res) => {
+    log('info', `GET /play`)
+    if (!isAuthorized(req)) {
+        res.sendStatus(403)
+        return
+    }
+
+    Stream.emit("play")
     res.sendStatus(200)
 })
 

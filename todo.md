@@ -2,8 +2,8 @@
 
 - [ ] app
   - [x] audio messages
-    - [ ] auto playback
-      - [ ] this implies an initial user event
+    - [x] auto playback
+      - [x] __this implies an initial user event__
     - [x] audio histogram -> représentation du temps
     - [x] sse kill audio
     - [x] audio messages can happen as messages and as replies
@@ -11,17 +11,23 @@
   - [x] make typing status
     - [ ] animation
   - [x] add time on every message
-  - [ ] add vibrate on receive
+  - [x] add vibrate on receive
+  - [ ] fix CSS property for playback
   - [ ] think about what happens at the end of the performance
   - [x] reconnect logic
+- [ ] app publishing
+  - [ ] fix the minimum API level issue on android
 - [x] setup server
+  - [x] deployed on remote server (caddyfile must have a `flush_interval -1`)
   - [x] setup server sent events (after getting a specific http request, the server sends back SSEs)
     - [x] basic events
     - [x] set up timing
     - [x] send response
     - [x] setup proper logs
     - [x] setup header auth
+    - [ ] fix the res.write after end error (try catch?)
   - [x] setup orchestrator page
+    - [x] fix the clearInterval issue
     - [x] feature to send messages
     - [x] view voting results
       - [x] make the start/end poll button only one button

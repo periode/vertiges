@@ -3,3 +3,5 @@ app/plugins/
 app/node_modules/
 backstage/node_modules/
 trace.txt
+key0.jks
+private_key.pepk

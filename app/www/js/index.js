@@ -8,7 +8,9 @@ function onDeviceReady() {
         el: '#app',
         data: {
             remote: {
-                url: 'localhost:4000',
+                url: 'vertiges.enframed.net',
+                protocol: 'https',
+                // url: 'localhost:4000',
                 endpoint: 'subscribe'
             },
             source: null,
@@ -16,6 +18,7 @@ function onDeviceReady() {
             connectionStatus: 'offline',
             hasStarted: false,
             localIndex: 0,
+            vibrate_time: 250,
             messages: [
                 { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "georges" },
                 { msg: "quelle connerie", type: "txt", sender: "georges" },
@@ -36,7 +39,7 @@ function onDeviceReady() {
 
                 this.connectionStatus = 'typing...'
 
-                fetch(`http://${this.remote.url}/reply?id=${_reply.id}`,
+                fetch(`${this.remote.protocol}://${this.remote.url}/reply?id=${_reply.id}`,
                     {
                         mode: 'cors',
                         headers: {
@@ -61,9 +64,10 @@ function onDeviceReady() {
                     this.connectionStatus = 'typing...'
                     _messages[this.localIndex].ts = this.getTimestamp()
                     this.messages.push(_messages[this.localIndex])
+                    navigator.vibrate(this.vibrate_time)
                     this.localIndex++
 
-                    setTimeout(() => { this.displayMessages(_messages, _replies) }, Math.random() * 2000 + 500)
+                    setTimeout(() => { this.displayMessages(_messages, _replies) }, Math.random() * 2000 + 2500)
                 } else {
                     toggleReplies()
                     this.replies = _replies
@@ -103,7 +107,12 @@ function onDeviceReady() {
             },
             connectToServer: function () {
                 console.log(`Connection to server ${this.remote.url}/${this.remote.endpoint}...`);
-                source = new EventSource(`http://${this.remote.url}/${this.remote.endpoint}`)
+                if(source && source.readyState != 2){
+                    console.log('Event source already exists,')
+                    return
+                }
+
+                source = new EventSource(`${this.remote.protocol}://${this.remote.url}/${this.remote.endpoint}`)
 
                 source.onopen = () => {
                     console.log('...opened connection to remote server!')
@@ -111,7 +120,7 @@ function onDeviceReady() {
                 }
 
                 source.onerror = (err) => {
-                    console.log(`...failed to reach server (${err}), retrying.`);
+                    console.log(`...failed to reach server (${err.message}), retrying.`);
                     this.connectionStatus = 'connecting...'
                     setTimeout(this.connectToServer, this.connectInterval * 1000)
                 }
@@ -130,15 +139,19 @@ function onDeviceReady() {
                         for(let player of players){
                             player.pause()
                             player.src = ''
-                        }
-                            
+                        }       
+                    }else if(content.play){
+                        let players = document.querySelectorAll('audio')
+                        for(let player of players){
+                            player.play()
+                        }  
                     }
                 }
             }
         },
         mounted: function () {
             this.connectToServer()
-            console.log(this.getTimestamp());
+            console.log(`${this.getTimestamp()} - VERTIGES`);
         }
     })
 }
