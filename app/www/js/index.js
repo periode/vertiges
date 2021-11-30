@@ -56,6 +56,7 @@ function onDeviceReady() {
                 if (_reply.reply)
                     setTimeout(() => {
                         this.messages.push({ msg: _reply.reply, sender: "georges", type: 'txt', ts: this.getTimestamp() })
+                        navigator.vibrate(this.vibrate_time)
                         this.connectionStatus = 'online'
                     }, 2000)
             },
@@ -142,9 +143,7 @@ function onDeviceReady() {
                         }       
                     }else if(content.play){
                         let players = document.querySelectorAll('audio')
-                        for(let player of players){
-                            player.play()
-                        }  
+                        players[players.length-1].play()
                     }
                 }
             }
