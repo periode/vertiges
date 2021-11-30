@@ -27,8 +27,7 @@
       "cordova-plugin-vibration": {}
     },
     "platforms": [
-      "browser",
-      "android"
+      "browser"
     ]
   }
 }
