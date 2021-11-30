@@ -13,7 +13,7 @@ function onDeviceReady() {
                 // url: 'localhost:4000',
                 endpoint: 'subscribe'
             },
-            status: "stage", // -- prologue, stage, epilogue
+            status: "prologue", // -- prologue, stage, epilogue
             storage: null,
             source: null,
             connectInterval: 5,
@@ -22,16 +22,14 @@ function onDeviceReady() {
             localIndex: 0,
             vibrate_time: 250,
             messages: [
-                { msg: "dernier message", type: "txt", sender: "georges" },
-                { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "georges" },
+                { msg: "enfin", type: "txt", sender: "georges" },
+                { msg: "non mais vraiment", type: "txt", sender: "georges" },
                 { msg: "quelle connerie", type: "txt", sender: "georges" },
-                { msg: "", type: "img", sender: "georges", src: './img/test.png' },
                 { type: "mp3", msg: "", src: './media/03-pnl-chang.mp3', sender: "georges" },
                 { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "georges" },
-                { msg: "quelle connerie", type: "txt", sender: "georges" },
+                { msg: "t'as vu jsuis stylé hein", type: "txt", sender: "georges" },
                 { msg: "", type: "img", sender: "georges", src: './img/test.png' },
-                { type: "mp3", msg: "", src: './media/03-pnl-chang.mp3', sender: "georges" },
-                
+                { msg: "salut moi c'est farid", type: "txt", sender: "georges" },
             ],
             replies: [
                 { txt: '', id: 'identity' },
@@ -46,7 +44,7 @@ function onDeviceReady() {
                 console.warn("Not writing the status change to localStorage")
             },
             sendReply: function (_reply) {
-                this.messages.push({ msg: _reply.txt, sender: "public", ts: this.getTimestamp() })
+                this.messages.unshift({ msg: _reply.txt, sender: "public", ts: this.getTimestamp() })
 
                 toggleReplies()
 
@@ -68,7 +66,7 @@ function onDeviceReady() {
 
                 if (_reply.reply)
                     setTimeout(() => {
-                        this.messages.push({ msg: _reply.reply, sender: "georges", type: 'txt', ts: this.getTimestamp() })
+                        this.messages.unshift({ msg: _reply.reply, sender: "georges", type: 'txt', ts: this.getTimestamp() })
                         navigator.vibrate(this.vibrate_time)
                         this.connectionStatus = 'online'
                     }, 2000)
@@ -77,7 +75,7 @@ function onDeviceReady() {
                 if (this.localIndex < _messages.length) {
                     this.connectionStatus = 'typing...'
                     _messages[this.localIndex].ts = this.getTimestamp()
-                    this.messages.push(_messages[this.localIndex])
+                    this.messages.unshift(_messages[this.localIndex])
                     navigator.vibrate(this.vibrate_time)
                     this.localIndex++
 
@@ -145,7 +143,7 @@ function onDeviceReady() {
                     console.log(content);
                     // console.log(content);
                     if (content.messages) {
-                        this.messages.push({ txt: '', type: "separator" })
+                        this.messages.unshift({ txt: '', type: "separator" })
                         this.displayMessages(content.messages, content.replies)
                     }else if(content.mute){
                         let players = document.querySelectorAll('audio')
