@@ -71,6 +71,16 @@ app.get('/subscribe', (req, res) => {
         }
     })
 
+    Stream.on("curtain", () => {
+        log('debug', `writing SSE: curtain`);
+	    try {
+            if(!res.writeableFinished && !res.writableEnded)
+	            res.write(`data: ${JSON.stringify({curtain: true})}\n\n`)
+        } catch {
+            log('error', 'attempting to play closed connection, skipping.')
+        }
+    })
+
     res.on('close', () => {
         total_clients--
         log('debug', `lost client, total: ${total_clients}`)
@@ -163,7 +173,8 @@ app.get('/get-all', (req, res) => {
     log('info', `GET /get-all`)
     let payload = {
         sequences: messages.getAll(),
-        next: next_sequence
+        next: next_sequence,
+        clients: total_clients
     }
     res.json(payload)
 })
@@ -192,6 +203,17 @@ app.get('/play', (req, res) => {
     }
 
     Stream.emit("play")
+    res.sendStatus(200)
+})
+
+app.get('/curtain', (req, res) => {
+    log('info', `GET /curtain`)
+    if (!isAuthorized(req)) {
+        res.sendStatus(403)
+        return
+    }
+
+    Stream.emit("curtain")
     res.sendStatus(200)
 })
 

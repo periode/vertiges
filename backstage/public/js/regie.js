@@ -7,11 +7,9 @@ let init = () => {
             time: null,
             sequences: [],
             pollInterval: null,
-            results: {
-                'identity': 4,
-                'class': 2
-            },
-            next: null
+            results: {},
+            next: null,
+            clients: 0
         },
         methods: {
             cue: function (_cue, _query, _param) {
@@ -59,6 +57,21 @@ let init = () => {
                     this.log('error', err)
                 })
             },
+            rideau: function() {
+                fetch(`/curtain`,
+                {
+                    headers: {
+                        'Authorization': 'Basic vertiges'
+                    }
+                }).then(res => {
+                    if (res.ok)
+                        this.log('info', `/curtain - ${res.status}`)
+                    else
+                        this.log('error', `/curtain - ${res.status}`)
+                }).catch(err => {
+                    this.log('error', err)
+                })
+            },
             log: function (_type, _msg) {
                 this.time = new Date()
                 let timestamp = `${this.time.getHours()}:${this.time.getMinutes()}:${this.time.getSeconds()}`
@@ -73,18 +86,18 @@ let init = () => {
             togglePoll: function (_evt) {
                 if (!this.pollInterval) {
                     this.pollInterval = setInterval(this.poll, 1000)
-                    this.log('info', 'started polling')
-                    _evt.target.innerText = 'stop poll'
+                    this.log('info', 'sondage lancé')
+                    _evt.target.innerText = 'interrompre'
                 } else {
                     clearInterval(this.pollInterval)
                     this.pollInterval = null
                     this.log('info', 'cleared poll interval')
-                    _evt.target.innerText = 'start poll'
+                    _evt.target.innerText = 'lancer sondage'
                 }
             },
             setNext: function (_next) {
                 if (_next != '') {
-                    this.log('info', `set next sequence to: ${_next}`);
+                    this.log('info', `prochaine séquence établie: ${_next}`);
                     fetch(`/set?sequence=${_next}`,
                         {
                             headers: {
@@ -93,25 +106,26 @@ let init = () => {
                         })
                         .then(res => {
                             if (res.ok)
-                                this.log('info', `successfully set ${_next}`)
+                                this.log('info', `succès: ${_next}`)
                             else
-                                this.log('error', `could not set next sequence: ${res.status}`)
+                                this.log('error', `erreur établissement séquence: ${res.status}`)
                             this.next = _next
                         })
                 } else {
-                    this.log('error', `sequence to be set is invalid: ${_next}`)
+                    this.log('error', `séquence invalide: ${_next}`)
                 }
 
             }
         },
         mounted: function () {
-            this.log('info', 'ready')
+            this.log('info', 'prêt')
 
             fetch('/get-all').then(res => {
                 return res.json()
             }).then(data => {
                 this.sequences = data.sequences
                 this.next = data.next
+                this.clients = data.clients
             })
         }
     })

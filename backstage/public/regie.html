@@ -15,60 +15,72 @@
 <body onload="init()">
     <div id="app">
         <header>
-            <h1>backstage</h1>
+            <h1>Régie</h1>
             <h2><a href="/plateau.html" target="_blank" rel="noopener noreferrer">plateau</a></h2>
         </header>
         <main>
             <!-- <button onclick="cue('cue', 'seqname', 'identity')">start</button> -->
             <div class="state">
-                <h2>STATE</h2>
+                <h2>ÉTAT</h2>
 
-                <div class="next">
-                    <h3>Séquence</h3>
-                    <div>→ {{ next ? next : 'inconnue' }}</div>
+                <div class="meta">
+                    <div class="next">
+                        <h3>Séquence</h3>
+                        <div>→ {{ next ? next : 'inconnue' }}</div>
+                    </div>
+                    <div class="clients">
+                        <h3>Public</h3>
+                        <div>→ {{ clients }}</div>
+                    </div>
                 </div>
 
-                <button class="poll-btn" @click="togglePoll($event)">start poll</button>
+                <button class="poll-btn" @click="togglePoll($event)">lancer sondage</button>
                 <div class="results">
-                    <div v-if="Object.keys(results).length === 0">No results found.</div>
+                    <div v-if="Object.keys(results).length === 0">Aucun résultat.</div>
                     <div class="result" v-for="(value, key) in results" :style="'order: '+value">
                         <div>{{ key }}</div>
                         <div>{{ value }}</div>
-                        <button @click="setNext(key)">set next</button>
+                        <button @click="setNext(key)">lancer</button>
                     </div>
                 </div>
-                <button class="poll-btn" @click="mute_all()">mute all</button>
-                <button class="poll-btn" @click="play_all()">play all</button>
+                <hr>
+                <button class="poll-btn" @click="play_all()">lancer le son</button>
+                <button class="poll-btn" @click="mute_all()">couper le son</button>
+                <hr>
+                <button class="poll-btn" @click="rideau()">rideau</button>
+
+                <hr>
+                <h2>LOG</h2>
+                <ul class="logger">
+                    <li v-for="log in logs" :class="'log '+log.type">{{ `[${log.ts}] ${log.msg}` }}</li>
+                </ul>
             </div>
 
             <div class="sequences">
-                <h2>SEQUENCES</h2>
-                <div class="sequence" v-for="seq in sequences" @click="cue('cue', 'sequence', seq.name)">
-                    <div class="sequence-name">{{ seq.name }}</div>
-                    <div class="messages">
-                        <div class="message" v-for="msg in seq.messages">
-                            <div class="type">{{ msg.type }}</div>
-                            <div class="msg">{{ msg.msg ? msg.msg : '-'}}</div>
-                            <div class="src">{{msg.src ? msg.src : '-'}}</div>
+                <h2>SÉQUENCES</h2>
+                <div class="sequence-holder">
+                    <div class="sequence" v-for="seq in sequences" @click="cue('cue', 'sequence', seq.name)">
+                        <div class="sequence-name">{{ seq.name }}</div>
+                        <div class="messages">
+                            <div class="message" v-for="msg in seq.messages">
+                                <div class="type">{{ msg.type }}</div>
+                                <div class="msg">{{ msg.msg ? msg.msg : '-'}}</div>
+                                <div class="src">{{msg.src ? msg.src : '-'}}</div>
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="replies">
-                        <div class="reply" v-for="reply in seq.replies">
-                            <div>{{ reply.txt }}</div>
-                            <div>{{ reply.reply }}</div>
+                        <hr>
+                        <div class="replies">
+                            <div class="reply" v-for="reply in seq.replies">
+                                <div>{{ reply.txt }}</div>
+                                <div>{{ reply.reply }}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
         <footer>
-            <div>
-                <h2>LOG</h2>
-                <ul class="logger">
-                    <li v-for="log in logs" :class="'log '+log.type">{{ `[${log.ts}] ${log.msg}` }}</li>
-                </ul>
-            </div>
+
         </footer>
     </div>
 </body>
