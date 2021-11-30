@@ -12,11 +12,13 @@
     - [ ] animation
   - [x] add time on every message
   - [x] add vibrate on receive
-  - [ ] fix CSS property for playback
-  - [ ] think about what happens at the end of the performance
+  - [x] fix CSS property for playback
+  - [x] opening view
+  - [x] end of the performance
+    - [x] localStorage to store state
   - [x] reconnect logic
-- [ ] app publishing
-  - [ ] fix the minimum API level issue on android
+- [x] app publishing
+  - [x] fix the minimum API level issue on android
 - [x] setup server
   - [x] deployed on remote server (caddyfile must have a `flush_interval -1`)
   - [x] setup server sent events (after getting a specific http request, the server sends back SSEs)
@@ -25,7 +27,7 @@
     - [x] send response
     - [x] setup proper logs
     - [x] setup header auth
-    - [ ] fix the res.write after end error (try catch?)
+    - [x] fix the res.write after end error (-> try catch)
   - [x] setup orchestrator page
     - [x] fix the clearInterval issue
     - [x] feature to send messages
@@ -39,3 +41,5 @@
     - [x] display all possible messages to be sent
   - [x] setup performer page
     - [x] only display the winning vote
+  - [x] have homepage on vertiges
+    - [x] password for régie

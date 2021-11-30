@@ -53,48 +53,52 @@
             </main>
         </div>
         <div v-if="status === 'stage'">
-        <header>
-            <h1>georges</h1>
-            <div class="connection-status">{{connectionStatus}}</div>
-        </header>
+            <header>
+                <h1>georges</h1>
+                <div class="connection-status">{{connectionStatus}}</div>
+            </header>
 
-        <main>
-            <div class="messages">
-                <div v-for="msg in messages" :class="'message '+ msg.type + ' ' + msg.sender">
-                    <!-- image -->
-                    <div v-if="msg.type == 'img'" class="img">
-                        <img :src="msg.src" />
-                    </div>
-
-                    <!-- audio -->
-                    <button  @click='toggleAudio($event)' class="audio-player" v-if="msg.type == 'mp3'">
-                        <img src="./img/play.svg" alt="play/pause by Helena R. Olmo from the Noun Project" srcset="">
-                        <audio :src="msg.src"></audio>
-                        <div class="audio-visualizer">
-                            <div class="timeline"></div>
-                            <div class="marker"></div>
+            <main>
+                <div class="messages">
+                    <div v-for="msg in messages" :class="'message '+ msg.type + ' ' + msg.sender">
+                        <!-- image -->
+                        <div v-if="msg.type == 'img'" class="img">
+                            <img :src="msg.src" />
                         </div>
-                    </button>
 
-                    <div>
-                        {{ msg.msg }}
+                        <!-- audio -->
+                        <button @click='toggleAudio($event)' class="audio-player" v-if="msg.type == 'mp3'">
+                            <img src="./img/play.svg" alt="play/pause by Helena R. Olmo from the Noun Project"
+                                srcset="">
+                            <audio :src="msg.src"></audio>
+                            <div class="audio-visualizer">
+                                <div class="timeline"></div>
+                                <div class="marker"></div>
+                            </div>
+                        </button>
+
+                        <div>
+                            {{ msg.msg }}
+                        </div>
+
+                        <div class="timestamp">{{ msg.ts }}</div>
                     </div>
-
-                    <div class="timestamp">{{ msg.ts }}</div>
                 </div>
-            </div>
 
-            <hr>
-            <div class="replies">
-                <button disabled class="reply" v-for="reply in replies" @click="sendReply(reply)">
-                    <span class="reply-text">{{ reply.txt }}</span>
-                </button>
-            </div>
-        </main>
-        <!-- <footer></footer> -->
+                <hr>
+                <div class="replies">
+                    <button disabled class="reply" v-for="reply in replies" @click="sendReply(reply)">
+                        <span class="reply-text">{{ reply.txt }}</span>
+                    </button>
+                </div>
+            </main>
+            <!-- <footer></footer> -->
         </div>
         <div v-if="status === 'epilogue'">
-            <h1>epilogue</h1>
+            <main>
+                <h1>Les Vertiges de Georges</h1>
+                <h2>épilogue</h2>
+            </main>
         </div>
     </div>
 </body>

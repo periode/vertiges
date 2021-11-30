@@ -13,7 +13,7 @@ function onDeviceReady() {
                 // url: 'localhost:4000',
                 endpoint: 'subscribe'
             },
-            status: "prologue", // -- prologue, stage, epilogue
+            status: "stage", // -- prologue, stage, epilogue
             storage: null,
             source: null,
             connectInterval: 5,
@@ -43,6 +43,7 @@ function onDeviceReady() {
             start: function() {
                 this.status = 'stage'
                 // this.storage['status'] = this.status
+                console.warn("Not writing the status change to localStorage")
             },
             sendReply: function (_reply) {
                 this.messages.push({ msg: _reply.txt, sender: "public", ts: this.getTimestamp() })
@@ -155,6 +156,9 @@ function onDeviceReady() {
                     }else if(content.play){
                         let players = document.querySelectorAll('audio')
                         players[players.length-1].play()
+                    }else if(content.curtain){
+                        this.status = 'epilogue'
+                        console.warn("Not writing the status change to localStorage")
                     }
                 }
             }
@@ -166,7 +170,7 @@ function onDeviceReady() {
             if(this.storage == null)
                 this.storage = window.localStorage
             
-            this.status = this.storage['status'] ? this.storage['status'] : 'prologue'
+            // this.status = this.storage['status'] ? this.storage['status'] : 'prologue'
         }
     })
 }

@@ -94,12 +94,16 @@ main{
     flex-direction: column;
 }
 
-.prologue h1{
+.prologue h1, .epilogue h1, .epilogue h2{
     position: absolute;
     top: 30%;
     left: 10%;
     width: 80%;
     text-align: center;
+}
+
+.epilogue h2{
+    top: 50%;
 }
 
 
@@ -169,6 +173,7 @@ main{
 
 .audio-visualizer {
     width: 100%;
+    height: 100%;
     background-color: white;
     display: flex;
     position: relative;
@@ -178,15 +183,15 @@ main{
     width: 100%;
     height: 2px;
     background-color: black;
-    align-self: center;
+    margin: auto;
 }
 
 .marker {
-    width: 3px;
-    height: 40%;
+    width: 2px;
+    height: 10px;
     background-color: black;
-    align-self: center;
     position: absolute;
+    top: calc(50% - 5px);
 }
 
 .img {
