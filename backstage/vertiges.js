@@ -43,20 +43,32 @@ app.get('/subscribe', (req, res) => {
     Stream.on("push", (evt) => {
         log('debug', `writing SSE: ${evt}`);
         let payload = messages.pick(evt)
-	    if(!res.writeableFinished && !res.writableEnded)    
-	        res.write(`data: ${JSON.stringify(payload)}\n\n`)
+        try {
+            if(!res.writeableFinished && !res.writableEnded)    
+	            res.write(`data: ${JSON.stringify(payload)}\n\n`)
+        } catch (error) {
+            log('error', 'attempting to write to closed connection, skipping.')   
+        }
     })
 
     Stream.on("mute", () => {
         log('debug', `writing SSE: mute`);
-	    if(!res.writeableFinished && !res.writableEnded)
-	        res.write(`data: ${JSON.stringify({mute: true})}\n\n`)
+	    try {
+            if(!res.writeableFinished && !res.writableEnded)
+	            res.write(`data: ${JSON.stringify({mute: true})}\n\n`)
+        } catch {
+            log('error', 'attempting to mute closed connection, skipping.')
+        }
     })
 
     Stream.on("play", () => {
         log('debug', `writing SSE: play`);
-	    if(!res.writeableFinished && !res.writableEnded)
-	        res.write(`data: ${JSON.stringify({play: true})}\n\n`)
+	    try {
+            if(!res.writeableFinished && !res.writableEnded)
+	            res.write(`data: ${JSON.stringify({play: true})}\n\n`)
+        } catch {
+            log('error', 'attempting to play closed connection, skipping.')
+        }
     })
 
     res.on('close', () => {
