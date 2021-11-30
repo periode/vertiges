@@ -13,6 +13,7 @@ body{
     padding: 0;
     background-color: #000000;
     color: whitesmoke;
+    overflow: hidden;
 }
 
 header, footer, main{
@@ -32,10 +33,29 @@ header h1, header h2{
     margin: 0;
 }
 
+header h2 a {
+    font-size: 1rem;
+    color: white;
+}
+
+header h2 a:visited {
+    color: white;
+}
+
 main{
     height: 80vh;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.accueil a {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 2rem;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 main h2{

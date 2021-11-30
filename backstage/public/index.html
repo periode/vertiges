@@ -1,76 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backstage | Vertiges de Georges</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/vue.dev.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
-    <script src="js/regie.js"></script>
+    <title>Vertiges | Performeur</title>
+    <link rel="stylesheet" href="css/plateau.css">
 </head>
-
-<body onload="init()">
-    <div id="app">
-        <header>
-            <h1>backstage</h1>
-            <h2><a href="performer.html" target="_blank" rel="noopener noreferrer">plateau</a></h2>
-        </header>
-        <main>
-            <!-- <button onclick="cue('cue', 'seqname', 'identity')">start</button> -->
-            <div class="state">
-                <h2>STATE</h2>
-
-                <div class="next">
-                    <h3>Séquence</h3>
-                    <div>→ {{ next ? next : 'inconnue' }}</div>
-                </div>
-
-                <button class="poll-btn" @click="togglePoll($event)">start poll</button>
-                <div class="results">
-                    <div v-if="Object.keys(results).length === 0">No results found.</div>
-                    <div class="result" v-for="(value, key) in results" :style="'order: '+value">
-                        <div>{{ key }}</div>
-                        <div>{{ value }}</div>
-                        <button @click="setNext(key)">set next</button>
-                    </div>
-                </div>
-                <button class="poll-btn" @click="mute_all()">mute all</button>
-                <button class="poll-btn" @click="play_all()">play all</button>
-            </div>
-
-            <div class="sequences">
-                <h2>SEQUENCES</h2>
-                <div class="sequence" v-for="seq in sequences" @click="cue('cue', 'sequence', seq.name)">
-                    <div class="sequence-name">{{ seq.name }}</div>
-                    <div class="messages">
-                        <div class="message" v-for="msg in seq.messages">
-                            <div class="type">{{ msg.type }}</div>
-                            <div class="msg">{{ msg.msg ? msg.msg : '-'}}</div>
-                            <div class="src">{{msg.src ? msg.src : '-'}}</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="replies">
-                        <div class="reply" v-for="reply in seq.replies">
-                            <div>{{ reply.txt }}</div>
-                            <div>{{ reply.reply }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <div>
-                <h2>LOG</h2>
-                <ul class="logger">
-                    <li v-for="log in logs" :class="'log '+log.type">{{ `[${log.ts}] ${log.msg}` }}</li>
-                </ul>
-            </div>
-        </footer>
-    </div>
+<body>
+    <header>
+        <h1>Les Vertiges de Georges</h1>
+    </header>
+    <main class="accueil">
+        <a href="/plateau.html">plateau</a>
+        <a href="/regie.html">régie</a>
+    </main>
 </body>
-
 </html>
