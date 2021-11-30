@@ -9,7 +9,7 @@
     - [x] audio messages can happen as messages and as replies
   - [x] photos
   - [x] make typing status
-    - [ ] animation
+    - [x] animation
   - [x] add time on every message
   - [x] add vibrate on receive
   - [x] fix CSS property for playback

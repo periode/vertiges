@@ -17,6 +17,8 @@ function onDeviceReady() {
             storage: null,
             source: null,
             connectInterval: 5,
+            typingInterval: null,
+            typingIndicator: '',
             connectionStatus: 'offline',
             hasStarted: false,
             localIndex: 0,
@@ -38,7 +40,7 @@ function onDeviceReady() {
             ]
         },
         methods: {
-            start: function() {
+            start: function () {
                 this.status = 'stage'
                 // this.storage['status'] = this.status
                 console.warn("Not writing the status change to localStorage")
@@ -48,7 +50,7 @@ function onDeviceReady() {
 
                 toggleReplies()
 
-                this.connectionStatus = 'typing...'
+                this.activateTyping()
 
                 fetch(`${this.remote.protocol}://${this.remote.url}/reply?id=${_reply.id}`,
                     {
@@ -68,12 +70,13 @@ function onDeviceReady() {
                     setTimeout(() => {
                         this.messages.unshift({ msg: _reply.reply, sender: "georges", type: 'txt', ts: this.getTimestamp() })
                         navigator.vibrate(this.vibrate_time)
-                        this.connectionStatus = 'online'
+                        this.deactivateTyping()
                     }, 2000)
             },
             displayMessages: function (_messages, _replies) {
                 if (this.localIndex < _messages.length) {
-                    this.connectionStatus = 'typing...'
+                    this.activateTyping()
+
                     _messages[this.localIndex].ts = this.getTimestamp()
                     this.messages.unshift(_messages[this.localIndex])
                     navigator.vibrate(this.vibrate_time)
@@ -85,7 +88,7 @@ function onDeviceReady() {
                     this.replies = _replies
                     this.localIndex = 0
 
-                    this.connectionStatus = 'online'
+                    this.deactivateTyping()
                 }
             },
             getTimestamp: function () {
@@ -95,16 +98,45 @@ function onDeviceReady() {
                 let ts = `${h}:${m}`
                 return ts
             },
+            activateTyping: function() {
+                this.connectionStatus = 'typing...'
+                if(this.typingInterval) return;
+
+                this.typingInterval = setInterval(() => {
+                    switch (this.typingIndicator.length) {
+                        case 0:
+                            this.typingIndicator = '.'
+                            break;
+                        case 1:
+                            this.typingIndicator = '..'
+                            break;
+                        case 2:
+                            this.typingIndicator = '...'
+                            break;
+                        case 3:
+                            this.typingIndicator = '.'
+                            break;
+                        default:
+                            break;
+                    }
+                }, 500)
+            },
+            deactivateTyping: function() {
+                clearInterval(this.typingInterval)
+                this.typingInterval = null
+                this.typingIndicator = ''
+                this.connectionStatus = 'online'
+            },
             toggleAudio: function (evt) {
                 let player = evt.target.nextElementSibling
                 let timeline = player.nextElementSibling
 
                 player.ontimeupdate = (evt) => {
-                    let progress  = (evt.timeStamp/10) / player.duration
+                    let progress = (evt.timeStamp / 10) / player.duration
                     timeline.children[1].style.left = `${progress}%`
                 }
 
-                player.oneneded  = () => {
+                player.oneneded = () => {
                     player.src = ''
                 }
 
@@ -118,7 +150,7 @@ function onDeviceReady() {
             },
             connectToServer: function () {
                 console.log(`Connection to server ${this.remote.url}/${this.remote.endpoint}...`);
-                if(source && source.readyState != 2){
+                if (source && source.readyState != 2) {
                     console.log('Event source already exists,')
                     return
                 }
@@ -145,16 +177,16 @@ function onDeviceReady() {
                     if (content.messages) {
                         this.messages.unshift({ txt: '', type: "separator" })
                         this.displayMessages(content.messages, content.replies)
-                    }else if(content.mute){
+                    } else if (content.mute) {
                         let players = document.querySelectorAll('audio')
-                        for(let player of players){
+                        for (let player of players) {
                             player.pause()
                             player.src = ''
-                        }       
-                    }else if(content.play){
+                        }
+                    } else if (content.play) {
                         let players = document.querySelectorAll('audio')
-                        players[players.length-1].play()
-                    }else if(content.curtain){
+                        players[players.length - 1].play()
+                    } else if (content.curtain) {
                         this.status = 'epilogue'
                         console.warn("Not writing the status change to localStorage")
                     }
@@ -165,9 +197,9 @@ function onDeviceReady() {
             console.log(`${this.getTimestamp()} - VERTIGES`);
 
             this.connectToServer()
-            if(this.storage == null)
+            if (this.storage == null)
                 this.storage = window.localStorage
-            
+
             // this.status = this.storage['status'] ? this.storage['status'] : 'prologue'
         }
     })

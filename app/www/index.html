@@ -60,6 +60,7 @@
 
             <main>
                 <div class="messages">
+                    <div class="typing">{{typingIndicator}}</div>
                     <div v-for="msg in messages" :class="'message '+ msg.type + ' ' + msg.sender">
                         <!-- image -->
                         <div v-if="msg.type == 'img'" class="img">

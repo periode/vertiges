@@ -123,6 +123,12 @@ main{
     height: 0;
 }
 
+.typing{
+    font-size: 1.2rem;
+
+    padding: 2px 8px 2px 8px;
+}
+
 .message {
     font-size: 14px;
     padding: 8px;
