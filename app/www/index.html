@@ -45,7 +45,14 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" :class="status">
+        <div v-if="status === 'prologue'">
+            <main>
+                <h1>Les Vertiges de Georges</h1>
+                <button @click="start()">Commencer</button>
+            </main>
+        </div>
+        <div v-if="status === 'stage'">
         <header>
             <h1>georges</h1>
             <div class="connection-status">{{connectionStatus}}</div>
@@ -85,6 +92,10 @@
             </div>
         </main>
         <!-- <footer></footer> -->
+        </div>
+        <div v-if="status === 'epilogue'">
+            <h1>epilogue</h1>
+        </div>
     </div>
 </body>
 

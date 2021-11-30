@@ -13,6 +13,8 @@ function onDeviceReady() {
                 // url: 'localhost:4000',
                 endpoint: 'subscribe'
             },
+            status: "prologue", // -- prologue, stage, epilogue
+            storage: null,
             source: null,
             connectInterval: 5,
             connectionStatus: 'offline',
@@ -20,10 +22,16 @@ function onDeviceReady() {
             localIndex: 0,
             vibrate_time: 250,
             messages: [
+                { msg: "dernier message", type: "txt", sender: "georges" },
                 { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "georges" },
                 { msg: "quelle connerie", type: "txt", sender: "georges" },
                 { msg: "", type: "img", sender: "georges", src: './img/test.png' },
                 { type: "mp3", msg: "", src: './media/03-pnl-chang.mp3', sender: "georges" },
+                { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "georges" },
+                { msg: "quelle connerie", type: "txt", sender: "georges" },
+                { msg: "", type: "img", sender: "georges", src: './img/test.png' },
+                { type: "mp3", msg: "", src: './media/03-pnl-chang.mp3', sender: "georges" },
+                
             ],
             replies: [
                 { txt: '', id: 'identity' },
@@ -32,6 +40,10 @@ function onDeviceReady() {
             ]
         },
         methods: {
+            start: function() {
+                this.status = 'stage'
+                // this.storage['status'] = this.status
+            },
             sendReply: function (_reply) {
                 this.messages.push({ msg: _reply.txt, sender: "public", ts: this.getTimestamp() })
 
@@ -89,7 +101,6 @@ function onDeviceReady() {
                 let timeline = player.nextElementSibling
 
                 player.ontimeupdate = (evt) => {
-                    // console.log(evt.timeStamp);
                     let progress  = (evt.timeStamp/10) / player.duration
                     timeline.children[1].style.left = `${progress}%`
                 }
@@ -149,8 +160,13 @@ function onDeviceReady() {
             }
         },
         mounted: function () {
-            this.connectToServer()
             console.log(`${this.getTimestamp()} - VERTIGES`);
+
+            this.connectToServer()
+            if(this.storage == null)
+                this.storage = window.localStorage
+            
+            this.status = this.storage['status'] ? this.storage['status'] : 'prologue'
         }
     })
 }

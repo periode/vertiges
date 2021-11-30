@@ -34,6 +34,19 @@ body {
     overflow: hidden;
 }
 
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: white;
+}
+
+#app{
+    overflow: hidden;
+}
+
 header,
 footer {
     max-width: 100vw;
@@ -47,6 +60,7 @@ header {
     text-align: left;
     z-index: 2;
     background-color: black;
+    border-bottom: 1px solid white;
     /* display: none; */
 }
 
@@ -59,15 +73,50 @@ hr {
     margin-top: 20px;
     margin-bottom: 20px;
     color: white;
+    width: 100%;
 }
 
+
+/* PROLOGUE */
+.prologue button{
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    width: 70%;
+    margin: auto;
+    font-size: 1.2rem;
+    padding: 10px;
+
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.prologue h1{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+}
+
+
+/* STAGE */
 .messages {
     width: 90vw;
     height: 75vh;
     margin: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.messages::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
 }
 
 .message {
