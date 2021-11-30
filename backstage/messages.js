@@ -1,6 +1,6 @@
 const all_messages = {
-    "identity": {
-        "name": "identity",
+    "identité": {
+        "name": "identité",
         "messages": [
             { type: 'txt', msg: "un jour on m'a demandé de me définir", sender: "georges"},
             { type: 'txt', msg: "quelle connerie", sender: "georges"},
@@ -32,7 +32,135 @@ const all_messages = {
                 reply: "ouais, si, une fois je me suis fait plaquer"
             }
         ]
-    }
+    },
+    "race": {
+        "name": "race",
+        "messages": [
+            { type: 'txt', msg: "sa race 5", sender: "georges"},
+            { type: 'txt', msg: "sa race 4", sender: "georges"},
+            { type: 'txt', msg: "sa race 3", sender: "georges"},
+            { type: 'txt', msg: "sa race 2", sender: "georges"},
+            { type: 'txt', msg: "sa race 1", sender: "georges"},
+        ],
+        "replies": [
+            {
+                id: "race",
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
+            },
+            {
+                id: "class",
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
+            },
+            {
+                id: "gender",
+                txt: "queer ?",
+                reply: "tu crois ? on dirait pas pourtant"
+            },
+            {
+                id: "police",
+                txt: "tu t'es pas fait casser la gueule?",
+                reply: "ouais, si, une fois je me suis fait plaquer"
+            }
+        ]
+    },
+    "police": {
+        "name": "police",
+        "messages": [
+            { type: 'txt', msg: "sa police 5", sender: "georges"},
+            { type: 'txt', msg: "sa police 4", sender: "georges"},
+            { type: 'txt', msg: "sa police 3", sender: "georges"},
+            { type: 'txt', msg: "sa police 2", sender: "georges"},
+            { type: 'txt', msg: "sa police 1", sender: "georges"},
+        ],
+        "replies": [
+            {
+                id: "race",
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
+            },
+            {
+                id: "class",
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
+            },
+            {
+                id: "gender",
+                txt: "queer ?",
+                reply: "tu crois ? on dirait pas pourtant"
+            },
+            {
+                id: "police",
+                txt: "tu t'es pas fait casser la gueule?",
+                reply: "ouais, si, une fois je me suis fait plaquer"
+            }
+        ]
+    },
+    "classe": {
+        "name": "classe",
+        "messages": [
+            { type: 'txt', msg: "la classe 5", sender: "georges"},
+            { type: 'txt', msg: "la classe 4", sender: "georges"},
+            { type: 'txt', msg: "la classe 3", sender: "georges"},
+            { type: 'txt', msg: "la classe 2", sender: "georges"},
+            { type: 'txt', msg: "la classe 1", sender: "georges"},
+        ],
+        "replies": [
+            {
+                id: "race",
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
+            },
+            {
+                id: "class",
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
+            },
+            {
+                id: "gender",
+                txt: "queer ?",
+                reply: "tu crois ? on dirait pas pourtant"
+            },
+            {
+                id: "police",
+                txt: "tu t'es pas fait casser la gueule?",
+                reply: "ouais, si, une fois je me suis fait plaquer"
+            }
+        ]
+    },
+    "genre": {
+        "name": "genre",
+        "messages": [
+            { type: 'txt', msg: "non mais genre 5", sender: "georges"},
+            { type: 'txt', msg: "non mais genre 4", sender: "georges"},
+            { type: 'txt', msg: "non mais genre 3", sender: "georges"},
+            { type: 'txt', msg: "non mais genre 2", sender: "georges"},
+            { type: 'txt', msg: "non mais genre 1", sender: "georges"},
+        ],
+        "replies": [
+            {
+                id: "race",
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
+            },
+            {
+                id: "class",
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
+            },
+            {
+                id: "gender",
+                txt: "queer ?",
+                reply: "tu crois ? on dirait pas pourtant"
+            },
+            {
+                id: "police",
+                txt: "tu t'es pas fait casser la gueule?",
+                reply: "ouais, si, une fois je me suis fait plaquer"
+            }
+        ]
+    },
 }
 
 let picked = []
