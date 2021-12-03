@@ -1,6 +1,15 @@
 # todo
 
-- [ ] app
+- [ ] distribution
+  - [ ] add a link to user support and privacy policy on main page
+  - [x] fix height of buttons on ios (from 75vh to 70vh)  ([platform specific css/js](https://riptutorial.com/cordova/example/24744/create-css-js-specific-to-a-platform--android-ios-))
+  - [x] fix playback line on ios (-> added -webkit-calc)
+    - [ ] check the weird behaviour with timestamps (sometimes starts at the beginning, sometimes at the middle)
+  - [x] fix questions display as white (disabled mode?) -> set the bg color
+  - [x] check the server reply issue?
+  - [x] fix the unshift issue when adding a reply -> temporarily setting overflow-hidden
+  - [x] fix no scroll
+- [x] app
   - [x] audio messages
     - [x] auto playback
       - [x] __this implies an initial user event__
