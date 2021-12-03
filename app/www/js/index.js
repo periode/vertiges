@@ -72,6 +72,8 @@ function onDeviceReady() {
                         navigator.vibrate(this.vibrate_time)
                         this.deactivateTyping()
                     }, 2000)
+
+                setTimeout(() => { document.getElementById("messages").classList.remove("not-scrollable") }, 2500)
             },
             displayMessages: function (_messages, _replies) {
                 if (this.localIndex < _messages.length) {
@@ -79,6 +81,7 @@ function onDeviceReady() {
 
                     _messages[this.localIndex].ts = this.getTimestamp()
                     this.messages.unshift(_messages[this.localIndex])
+                    
                     navigator.vibrate(this.vibrate_time)
                     this.localIndex++
 
@@ -175,6 +178,7 @@ function onDeviceReady() {
                     console.log(content);
                     // console.log(content);
                     if (content.messages) {
+                        document.getElementById("messages").classList.add("not-scrollable")
                         this.messages.unshift({ txt: '', type: "separator" })
                         this.displayMessages(content.messages, content.replies)
                     } else if (content.mute) {
