@@ -109,13 +109,20 @@ main{
 
 /* STAGE */
 .messages {
+
     width: 90vw;
     height: 75vh;
     margin: auto;
     display: flex;
     flex-direction: column-reverse;
+    justify-content: flex-start;
+    -webkit-flex-direction: column-reverse;
     overflow-y: scroll;
     scrollbar-width: none;
+}
+
+.not-scrollable {
+    overflow-y: hidden;
 }
 
 .messages::-webkit-scrollbar { /* WebKit */
@@ -174,6 +181,7 @@ main{
 .audio-player img {
     align-self: flex-start;
     height: 100%;
+    width: 20%;
     cursor: pointer;
 }
 
@@ -198,6 +206,7 @@ main{
     background-color: black;
     position: absolute;
     top: calc(50% - 5px);
+    top: -webkit-calc(50% - 5px);
 }
 
 .img {
@@ -215,13 +224,6 @@ main{
     font-size: 10px;
     font-style: italic;
     margin-top: 5px;
-}
-
-.georges .timestamp {
-    text-align: right;
-}
-
-.public .timestamp {
     text-align: right;
 }
 
@@ -240,6 +242,8 @@ main{
     margin: 8px;
     padding: 8px;
     border: 1px solid white;
+    background-color: white;
+    color: black;
     border-radius: 10px;
     flex-basis: 30%;
     flex-grow: 0;
