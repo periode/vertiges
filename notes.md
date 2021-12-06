@@ -30,3 +30,12 @@ la narration digitale peut etre ou pas superposée à ce qui se passe sur le pla
 ## questions
 
 - qu'est-ce qu'il se passe quand on a fini fini de jouer un audio? repart a 0? disparait?
+
+## materials needed for store submission
+
+### android
+
+- [ ] app name
+- [ ] short description (80 char)
+- [ ] long description (4000 char)
+- [ ] preview assets (screenshots, mobile + tablet)
