@@ -1,0 +1,12 @@
+body {
+    overflow-y: scroll;
+}
+
+main {
+    padding: 1rem;
+}
+
+button {
+    padding: 0.5rem;
+    margin-top: 1rem;
+}

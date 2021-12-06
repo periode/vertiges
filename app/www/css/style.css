@@ -102,6 +102,22 @@ main{
     text-align: center;
 }
 
+.about{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.about a:visited{
+    color: white;
+}
+
 .epilogue h2{
     top: 50%;
 }

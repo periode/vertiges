@@ -1,7 +1,9 @@
 # todo
 
 - [ ] distribution
-  - [ ] add a link to user support and privacy policy on main page
+  - [ ] test android
+  - [ ] test iphone
+  - [x] add a link to user support and privacy policy on main page
   - [x] fix height of buttons on ios (from 75vh to 70vh)  ([platform specific css/js](https://riptutorial.com/cordova/example/24744/create-css-js-specific-to-a-platform--android-ios-))
   - [x] fix playback line on ios (-> added -webkit-calc)
     - [ ] check the weird behaviour with timestamps (sometimes starts at the beginning, sometimes at the middle)
@@ -29,6 +31,7 @@
 - [x] app publishing
   - [x] fix the minimum API level issue on android
 - [x] setup server
+  - [ ] end the response if total_clients == 0
   - [x] deployed on remote server (caddyfile must have a `flush_interval -1`)
   - [x] setup server sent events (after getting a specific http request, the server sends back SSEs)
     - [x] basic events
