@@ -1,3 +1,9 @@
 .messages {
     height: 70vh; /* this is for the weird bottom of iphones */
 }
+
+.timeline {
+    position: absolute;
+    top: calc(50% - 0px);
+    top: -webkit-calc(50% - 0px);
+}
