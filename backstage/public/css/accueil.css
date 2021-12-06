@@ -1,0 +1,49 @@
+main {
+    display: block;
+    height: auto;
+}
+
+a {
+    color: white;
+}
+
+a:visited{
+    color: grey;
+}
+
+a:hover{
+    color: white;
+}
+
+.privacy-contact {
+    display: flex;
+    margin-top: 5rem;
+    font-size: 0.9rem;
+    justify-content: space-between;
+}
+
+.privacy, .contact {
+    width: 40%;
+}
+
+@media screen and (max-width: 900px) {
+    .privacy-contact {
+        flex-direction: column;
+    }
+
+    .privacy, .contact{
+        width: 100%;
+    }
+}
+
+footer {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer ul{
+    list-style: none;
+    margin: 0;
+}
