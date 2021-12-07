@@ -49,6 +49,7 @@ function onDeviceReady() {
                 this.messages.unshift({ msg: _reply.txt, sender: "public", ts: this.getTimestamp() })
 
                 toggleReplies()
+                this.replies = [{txt:'', id:''},{txt:'', id:''},{txt:'', id:''}]
 
                 this.activateTyping()
 
