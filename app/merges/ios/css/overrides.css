@@ -2,8 +2,12 @@
     height: 70vh; /* this is for the weird bottom of iphones */
 }
 
+.audio-player, .audio-player img, .audio-visualizer{
+    min-height: 50px;
+}
+
 .timeline {
-    position: absolute;
+    position: static;
     top: calc(50% - 0px);
     top: -webkit-calc(50% - 0px);
 }
