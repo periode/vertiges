@@ -1,7 +1,7 @@
 # todo
 
 - [ ] distribution
-  - [ ] remove the placeholder text
+  - [x] remove the placeholder text
   - [x] finish the epilogue
   - [x] test android
   - [x] test iphone
