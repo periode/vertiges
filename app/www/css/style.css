@@ -90,6 +90,10 @@ button a:visited{
     color: black;
 }
 
+a{
+    color: white;
+}
+
 
 /* PROLOGUE */
 .prologue button{
