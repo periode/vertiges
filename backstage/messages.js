@@ -2,13 +2,13 @@ const all_messages = {
     "identité": {
         "name": "identité",
         "messages": [
-            { type: 'txt', msg: "un jour on m'a demandé de me définir", sender: "georges"},
-            { type: 'txt', msg: "quelle connerie", sender: "georges"},
-            { type: 'txt', msg: "je suis", sender: "georges"},
-            { type: 'txt', msg: "jsais pas", sender: "georges"},
-            { type: 'txt', msg: "je suis", sender: "georges"},
-            { type: "mp3", msg: "", src: './media/03-pnl-chang.mp3', sender: "georges"},
-            { type: 'txt', msg: "je suis farid ayelem rahmouni, chorégraphe queer", sender: "georges"}
+            { type: 'txt', msg: "un jour on m'a demandé de me définir", sender: "performer"},
+            { type: 'txt', msg: "quelle connerie", sender: "performer"},
+            { type: 'txt', msg: "je suis", sender: "performer"},
+            { type: 'txt', msg: "jsais pas", sender: "performer"},
+            { type: 'txt', msg: "je suis", sender: "performer"},
+            { type: "mp3", msg: "", src: './media/cendres.mp3', sender: "performer"},
+            { type: 'txt', msg: "je suis farid ayelem rahmouni, chorégraphe queer", sender: "performer"}
         ],
         "replies": [
             {
@@ -36,11 +36,11 @@ const all_messages = {
     "race": {
         "name": "race",
         "messages": [
-            { type: 'txt', msg: "sa race 1", sender: "georges"},
-            { type: 'txt', msg: "sa race 2", sender: "georges"},
-            { type: 'txt', msg: "sa race 3", sender: "georges"},
-            { type: 'txt', msg: "sa race 4", sender: "georges"},
-            { type: 'txt', msg: "sa race 5", sender: "georges"},
+            { type: 'txt', msg: "sa race 1", sender: "performer"},
+            { type: 'txt', msg: "sa race 2", sender: "performer"},
+            { type: 'txt', msg: "sa race 3", sender: "performer"},
+            { type: 'txt', msg: "sa race 4", sender: "performer"},
+            { type: 'txt', msg: "sa race 5", sender: "performer"},
         ],
         "replies": [
             {
@@ -68,11 +68,11 @@ const all_messages = {
     "police": {
         "name": "police",
         "messages": [
-            { type: 'txt', msg: "sa police 1", sender: "georges"},
-            { type: 'txt', msg: "sa police 2", sender: "georges"},
-            { type: 'txt', msg: "sa police 3", sender: "georges"},
-            { type: 'txt', msg: "sa police 4", sender: "georges"},
-            { type: 'txt', msg: "sa police 5", sender: "georges"},
+            { type: 'txt', msg: "sa police 1", sender: "performer"},
+            { type: 'txt', msg: "sa police 2", sender: "performer"},
+            { type: 'txt', msg: "sa police 3", sender: "performer"},
+            { type: 'txt', msg: "sa police 4", sender: "performer"},
+            { type: 'txt', msg: "sa police 5", sender: "performer"},
         ],
         "replies": [
             {
@@ -100,11 +100,11 @@ const all_messages = {
     "classe": {
         "name": "classe",
         "messages": [
-            { type: 'txt', msg: "la classe 1", sender: "georges"},
-            { type: 'txt', msg: "la classe 2", sender: "georges"},
-            { type: 'txt', msg: "la classe 3", sender: "georges"},
-            { type: 'txt', msg: "la classe 4", sender: "georges"},
-            { type: 'txt', msg: "la classe 5", sender: "georges"},
+            { type: 'txt', msg: "la classe 1", sender: "performer"},
+            { type: 'txt', msg: "la classe 2", sender: "performer"},
+            { type: 'txt', msg: "la classe 3", sender: "performer"},
+            { type: 'txt', msg: "la classe 4", sender: "performer"},
+            { type: 'txt', msg: "la classe 5", sender: "performer"},
         ],
         "replies": [
             {
@@ -132,11 +132,11 @@ const all_messages = {
     "genre": {
         "name": "genre",
         "messages": [
-            { type: 'txt', msg: "non mais genre 1", sender: "georges"},
-            { type: 'txt', msg: "non mais genre 2", sender: "georges"},
-            { type: 'txt', msg: "non mais genre 3", sender: "georges"},
-            { type: 'txt', msg: "non mais genre 4", sender: "georges"},
-            { type: 'txt', msg: "non mais genre 5", sender: "georges"},
+            { type: 'txt', msg: "non mais genre 1", sender: "performer"},
+            { type: 'txt', msg: "non mais genre 2", sender: "performer"},
+            { type: 'txt', msg: "non mais genre 3", sender: "performer"},
+            { type: 'txt', msg: "non mais genre 4", sender: "performer"},
+            { type: 'txt', msg: "non mais genre 5", sender: "performer"},
         ],
         "replies": [
             {

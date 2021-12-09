@@ -19,19 +19,19 @@ function onDeviceReady() {
             connectInterval: 5,
             typingInterval: null,
             typingIndicator: '',
-            connectionStatus: 'offline',
+            connectionStatus: 'hors-ligne',
             hasStarted: false,
             localIndex: 0,
             vibrate_time: 250,
             messages: [
-                { msg: "enfin", type: "txt", sender: "georges" },
-                { msg: "non mais vraiment", type: "txt", sender: "georges" },
-                { msg: "quelle connerie", type: "txt", sender: "georges" },
-                { type: "mp3", msg: "", src: './media/03-pnl-chang.mp3', sender: "georges" },
-                { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "georges" },
-                { msg: "t'as vu jsuis stylé hein", type: "txt", sender: "georges" },
-                { msg: "", type: "img", sender: "georges", src: './img/test.png' },
-                { msg: "salut moi c'est farid", type: "txt", sender: "georges" },
+                { msg: "enfin", type: "txt", sender: "performer" },
+                { msg: "non mais vraiment", type: "txt", sender: "performer" },
+                { msg: "quelle connerie", type: "txt", sender: "performer" },
+                { type: "mp3", msg: "", src: './media/cendres.mp3', sender: "performer" },
+                { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "performer" },
+                { msg: "t'as vu jsuis stylé hein", type: "txt", sender: "performer" },
+                { msg: "", type: "img", sender: "performer", src: './img/test.png' },
+                { msg: "salut moi c'est farid", type: "txt", sender: "performer" },
             ],
             replies: [
                 { txt: '', id: 'identity' },
@@ -69,7 +69,7 @@ function onDeviceReady() {
 
                 if (_reply.reply)
                     setTimeout(() => {
-                        this.messages.unshift({ msg: _reply.reply, sender: "georges", type: 'txt', ts: this.getTimestamp() })
+                        this.messages.unshift({ msg: _reply.reply, sender: "performer", type: 'txt', ts: this.getTimestamp() })
                         navigator.vibrate(this.vibrate_time)
                         this.deactivateTyping()
                     }, 2000)
@@ -103,7 +103,7 @@ function onDeviceReady() {
                 return ts
             },
             activateTyping: function() {
-                this.connectionStatus = 'typing...'
+                this.connectionStatus = 'compose...'
                 if(this.typingInterval) return;
 
                 this.typingInterval = setInterval(() => {
@@ -129,7 +129,7 @@ function onDeviceReady() {
                 clearInterval(this.typingInterval)
                 this.typingInterval = null
                 this.typingIndicator = ''
-                this.connectionStatus = 'online'
+                this.connectionStatus = 'en ligne'
             },
             toggleAudio: function (evt) {
                 let player = evt.target.nextElementSibling
@@ -163,12 +163,12 @@ function onDeviceReady() {
 
                 source.onopen = () => {
                     console.log('...opened connection to remote server!')
-                    this.connectionStatus = 'online'
+                    this.connectionStatus = 'en ligne'
                 }
 
                 source.onerror = (err) => {
                     console.log(`...failed to reach server (${err.message}), retrying.`);
-                    this.connectionStatus = 'connecting...'
+                    this.connectionStatus = 'connexion...'
                     setTimeout(this.connectToServer, this.connectInterval * 1000)
                 }
 
