@@ -108,7 +108,7 @@ main{
     flex-direction: column;
 }
 
-.prologue h1, .epilogue h1, .epilogue h2{
+.prologue h1{
     position: absolute;
     top: 30%;
     left: 10%;
@@ -288,4 +288,13 @@ main{
 .reply-text {
     width: 100%;
     text-align: center;
+}
+
+
+/* EPILOGUE */
+.epilogue{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

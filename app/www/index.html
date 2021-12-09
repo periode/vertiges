@@ -63,6 +63,10 @@
             <main>
                 <div id="messages" class="messages">
                     <div class="typing">{{typingIndicator}}</div>
+                    <div v-if="messages.length == 0">Bienvenue!<br/>
+                        <br>
+                        Cette application accompagne le spectacle des Vertiges de Georges.<br/>
+                        Si vous êtes dans la salle, votre application va bientôt s'activer. Sinon, vous pouvez accéder à plus d'informations sur la pièce <a href="./about.html">ici</a>.</div>
                     <div v-for="msg in messages" :class="'message '+ msg.type + ' ' + msg.sender">
                         <!-- image -->
                         <div v-if="msg.type == 'img'" class="img">
@@ -99,8 +103,12 @@
         </div>
         <div v-if="status === 'epilogue'">
             <main>
-                <h1>Les Vertiges de Georges</h1>
-                <h2>épilogue</h2>
+                <div class="epilogue">
+                    <h1>Les Vertiges de Georges</h1>
+                    <h2>épilogue</h2>
+                    <p>Merci d'avoir participé aux Vertiges de Georges!</p>
+                    <p>{{ epilogue }}</p>
+                </div>
             </main>
         </div>
     </div>

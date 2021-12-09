@@ -1,8 +1,10 @@
 # todo
 
 - [ ] distribution
-  - [ ] test android
-  - [ ] test iphone
+  - [ ] remove the placeholder text
+  - [x] finish the epilogue
+  - [x] test android
+  - [x] test iphone
   - [x] add a link to user support and privacy policy on main page
   - [x] fix height of buttons on ios (from 75vh to 70vh)  ([platform specific css/js](https://riptutorial.com/cordova/example/24744/create-css-js-specific-to-a-platform--android-ios-))
   - [x] fix playback line on ios (-> added -webkit-calc)

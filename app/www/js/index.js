@@ -14,24 +14,25 @@ function onDeviceReady() {
                 endpoint: 'subscribe'
             },
             status: "prologue", // -- prologue, stage, epilogue
+            epilogue: "",
             storage: null,
             source: null,
             connectInterval: 5,
             typingInterval: null,
             typingIndicator: '',
-            connectionStatus: 'hors-ligne',
+            connectionStatus: 'hors ligne',
             hasStarted: false,
             localIndex: 0,
             vibrate_time: 250,
             messages: [
-                { msg: "enfin", type: "txt", sender: "performer" },
-                { msg: "non mais vraiment", type: "txt", sender: "performer" },
-                { msg: "quelle connerie", type: "txt", sender: "performer" },
-                { type: "mp3", msg: "", src: './media/cendres.mp3', sender: "performer" },
-                { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "performer" },
-                { msg: "t'as vu jsuis stylé hein", type: "txt", sender: "performer" },
-                { msg: "", type: "img", sender: "performer", src: './img/test.png' },
-                { msg: "salut moi c'est farid", type: "txt", sender: "performer" },
+                // { msg: "enfin", type: "txt", sender: "performer" },
+                // { msg: "non mais vraiment", type: "txt", sender: "performer" },
+                // { msg: "quelle connerie", type: "txt", sender: "performer" },
+                // { type: "mp3", msg: "", src: './media/cendres.mp3', sender: "performer" },
+                // { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "performer" },
+                // { msg: "t'as vu jsuis stylé hein", type: "txt", sender: "performer" },
+                // { msg: "", type: "img", sender: "performer", src: './img/test.png' },
+                // { msg: "salut moi c'est farid", type: "txt", sender: "performer" },
             ],
             replies: [
                 { txt: '', id: 'identity' },
@@ -168,7 +169,7 @@ function onDeviceReady() {
 
                 source.onerror = (err) => {
                     console.log(`...failed to reach server (${err.message}), retrying.`);
-                    this.connectionStatus = 'connexion...'
+                    this.connectionStatus = 'tentative de connexion...'
                     setTimeout(this.connectToServer, this.connectInterval * 1000)
                 }
 
@@ -193,6 +194,7 @@ function onDeviceReady() {
                         players[players.length - 1].play()
                     } else if (content.curtain) {
                         this.status = 'epilogue'
+                        this.epilogue = content.epilogue ? content.epilogue : "Visitez vertiges.enframed.net pour plus d'informations sur le spectacle!"
                         console.warn("Not writing the status change to localStorage")
                     }
                 }
