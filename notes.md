@@ -1,5 +1,23 @@
 # notes
 
+## 16.12.2021
+
+- écriture courant janvier
+- représentation 03.02.22
+- farid semaine berlin: 18-19-20.01.2021
+- soumettre app store avec screenshot
+- doléances pour annecy: (fin de la semaine de travail a berlin)
+- - boite de dev
+- - avocat rgpd
+- - direction graphique
+- - cahier des fonctionnalités
+- - assistance technique (personne pour débugger)
+
+
+- questions
+- - est-ce que ca marche pas mieux, en termes de rhythme, de faire `texte` - `performance` - réponse
+- - quel est le __ton__ qu'on utilise? à qui on parle? de quelle position est-ce qu'on parle?
+
 ## général
 
 dates de la résidence: 3/12 - 17/12
@@ -15,7 +33,7 @@ https://play.google.com/console/u/2/developers/
 - diffusion son
 - diffusion texte
 - possibilité de vote? (thème: racisme inhérent, rapports de pouvoir)
-- collection d'information au début?
+- ~~collection d'information au début?~~
 
 quantifier mon salaire. en général, plateau c'est 15e de l'heure, recherche c'est 30e de l'heure
 

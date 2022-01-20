@@ -24,16 +24,7 @@ function onDeviceReady() {
             hasStarted: false,
             localIndex: 0,
             vibrate_time: 250,
-            messages: [
-                // { msg: "enfin", type: "txt", sender: "performer" },
-                // { msg: "non mais vraiment", type: "txt", sender: "performer" },
-                // { msg: "quelle connerie", type: "txt", sender: "performer" },
-                // { type: "mp3", msg: "", src: './media/cendres.mp3', sender: "performer" },
-                // { msg: "un jour on m'a demandé de me définir", type: "txt", sender: "performer" },
-                // { msg: "t'as vu jsuis stylé hein", type: "txt", sender: "performer" },
-                // { msg: "", type: "img", sender: "performer", src: './img/test.png' },
-                // { msg: "salut moi c'est farid", type: "txt", sender: "performer" },
-            ],
+            messages: [],
             replies: [
                 { txt: '', id: 'identity' },
                 { txt: '', id: 'class' },
