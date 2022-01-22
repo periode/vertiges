@@ -30,13 +30,13 @@ const all_messages = {
         "replies": [
             {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
                 txt: "chorégraphe ?",
-                reply: "à la base j'étais plutôt pas censé faire ça"
+                reply: "à la base j'étais pas censé faire ça"
             },
             {
                 id: "embrassade",
@@ -50,8 +50,8 @@ const all_messages = {
             },
             {
                 id: "silence",
-                txt: "...",
-                reply: "exactement"
+                txt: "tu te sens investi ?",
+                reply: "Souvent quand ça me concerne j'ai pris l'habitude de me taire"
             },
             {
                 id: "oriental",
@@ -60,13 +60,13 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "t'as des passions ?",
-                reply: "ouais, la nuit, je m'amuse."
+                txt: "dominant ou dominé ?",
+                reply: "l'un et l'autre, c'est un jeu d'équilbre de ouf."
             },
             {
                 id: "combat",
@@ -90,7 +90,7 @@ const all_messages = {
         "replies": [
             {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
             },
             {
@@ -110,7 +110,7 @@ const all_messages = {
             },
             {
                 id: "silence",
-                txt: "...",
+                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
                 reply: "exactement"
             },
             {
@@ -120,7 +120,7 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
@@ -150,9 +150,8 @@ const all_messages = {
         "replies": [
                         {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
-            },
             {
                 id: "prolétaire",
                 txt: "chorégraphe ?",
@@ -180,7 +179,7 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
@@ -200,7 +199,7 @@ const all_messages = {
         "messages": [
             { type: 'txt', msg: "parfois je me fais mal", sender: "performer"},
             { type: 'txt', msg: "c'est marrant, plus tu vieillis, plus tu te fais mal quand tu fais un faux-mouvement", sender: "performer"},
-            { type: 'txt', msg: "mes oncles me l'avaient jamais dit, ca", sender: "performer"},
+            { type: 'txt', msg: "Dans la famille on parle jamais de ça", sender: "performer"},
             { type: 'txt', msg: "j'imagine qu'à l'usine, ils avaient toujours mal, eux.", sender: "performer"},
             { type: 'txt', msg: "leur métier dans la chair", sender: "performer"},
             { type: 'txt', msg: "que la répétition chorégraphique de mon corps n'a aucun rapport avec l'aliénation du leur", sender: "performer"},
@@ -209,7 +208,7 @@ const all_messages = {
         "replies": [
                         {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
             },
             {
@@ -228,8 +227,8 @@ const all_messages = {
                 reply: "si, une fois je me suis fait plaquer"
             },
             {
-                id: "silence",
-                txt: "...",
+               id: "silence",
+                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
                 reply: "exactement"
             },
             {
@@ -239,7 +238,7 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
@@ -257,19 +256,22 @@ const all_messages = {
     "embrassade": { //-- love me tender
         "name": "embrassade",
         "messages": [
-            { type: 'txt', msg: "ce sont tous les mêmes, franchement", sender: "performer"},
-            { type: 'txt', msg: "les mecs", sender: "performer"},
-            { type: 'txt', msg: "ils te sussurent des trucs à l'oreille", sender: "performer"},
+            { type: 'txt', msg: "tes mains sur ma peau", sender: "performer"},
+            { type: 'txt', msg: "mes levrès sur tes lèvres", sender: "performer"},
+            { type: 'txt', msg: "on se sussure des trucs à l'oreille", sender: "performer"},
+            { type: 'txt', msg: "proche, on s'entend respirer", sender: "performer"},
             { type: 'txt', msg: "et puis la main sur le bassin", sender: "performer"},
             { type: 'txt', msg: "ferme, la main", sender: "performer"},
             { type: 'txt', msg: "qui ne laisse pas ton bassin se dégager", sender: "performer"},
             { type: 'txt', msg: "y'a ceux qui aiment ça", sender: "performer"},
             { type: 'txt', msg: "y'a ceux qui trouvent ça bizarre", sender: "performer"},
+            { type: 'txt', msg: "Ça nous arrive à tous de jouer ce jeu de con", sender: "performer"}
+            { type: 'txt', msg: "des fois j'ai juste besoin de me sentir comprimer", sender: "performer"}
         ],
         "replies": [
                         {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
             },
             {
@@ -288,8 +290,8 @@ const all_messages = {
                 reply: "si, une fois je me suis fait plaquer"
             },
             {
-                id: "silence",
-                txt: "...",
+                 id: "silence",
+                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
                 reply: "exactement"
             },
             {
@@ -299,7 +301,7 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
@@ -325,15 +327,18 @@ const all_messages = {
             { type: 'txt', msg: "et que même si t'as envie", sender: "performer"},
             { type: 'txt', msg: "t'es pas complètement sûr d'où sont les limites", sender: "performer"},
             { type: 'txt', msg: "ça dépend d'où, de qui, de quand", sender: "performer"},
+            { type: 'txt', msg: "c'est jamais toi qui décide", sender: "performer"}
+            { type: 'txt', msg: "même pour toi, pour les tiens", sender: "performer"}
             { type: 'txt', msg: "mais donc bon", sender: "performer"},
-            { type: 'txt', msg: "on avance", sender: "performer"},
+            { type: 'txt', msg: "t'avance", sender: "performer"},
             { type: 'txt', msg: "un peu à tâtons", sender: "performer"},
             { type: 'txt', msg: "un peu par saccades", sender: "performer"},
+            { type: 'txt', msg: "Ça fout quand même bien la rage", sender: "performer"}   
         ],
         "replies": [
                         {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
             },
             {
@@ -352,8 +357,8 @@ const all_messages = {
                 reply: "si, une fois je me suis fait plaquer"
             },
             {
-                id: "silence",
-                txt: "...",
+                 id: "silence",
+                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
                 reply: "exactement"
             },
             {
@@ -363,7 +368,7 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
@@ -382,19 +387,22 @@ const all_messages = {
         "name": "oriental",
         "messages": [
             { type: 'txt', msg: "même dans la danse, on a des catégories", sender: "performer"},
-            { type: 'txt', msg: "surtout moi", sender: "performer"},
+            { type: 'txt', msg: "moi aussi", sender: "performer"},
             { type: 'txt', msg: "mon corps a des catégories", sender: "performer"},
+            { type: 'txt', msg: "Fallait rentrer dans le moule", sender: "performer"}
             { type: 'txt', msg: "autant que dire que je fais pas de ballet", sender: "performer"},
             { type: 'txt', msg: "enfin, si, j'en ai fait, du ballet", sender: "performer"},
             { type: 'txt', msg: "mais tu vois ce que je veux dire", sender: "performer"},
-            { type: 'txt', msg: "plutôt danse du ventre, quoi", sender: "performer"},
-            { type: 'txt', msg: "wallah", sender: "performer"},
+            { type: 'txt', msg: "quand t'es un touche à tout, c'est chaud de se sentir légitime", sender: "performer"},
+            { type: 'txt', msg: "souvent imposteur", sender: "performer"},
             { type: 'txt', msg: "jte jure*", sender: "performer"},
+            { type: 'txt', msg: "Aujourd'hui j'ai envie de tout mixer", sender: "performer"}
+            { type: 'txt', msg: "J'men Balek", sender: "performer"}
         ],
         "replies": [
                         {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
             },
             {
@@ -413,8 +421,8 @@ const all_messages = {
                 reply: "si, une fois je me suis fait plaquer"
             },
             {
-                id: "silence",
-                txt: "...",
+                 id: "silence",
+                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
                 reply: "exactement"
             },
             {
@@ -424,7 +432,7 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
@@ -442,16 +450,19 @@ const all_messages = {
     "extase": {
         "name": "extase",
         "messages": [
-            { type: 'txt', msg: "", sender: "performer"},
-            { type: 'txt', msg: "", sender: "performer"},
-            { type: 'txt', msg: "", sender: "performer"},
-            { type: 'txt', msg: "", sender: "performer"},
-            { type: 'txt', msg: "", sender: "performer"},
+            { type: 'txt', msg: "Y'a quand même un truc jouissif à contrer l'adversité", sender: "performer"}
+            { type: 'txt', msg: "quand tu captes que ça va être compliqué, mais que tu trouves des solutions", sender: "performer"}
+            { type: 'txt', msg: "C'est un truc un peu maso, c'est vrai", sender: "performer"}
+            { type: 'txt', msg: "C'est libérateur quand dans la douleur et la contrainte", sender: "performer"}
+            { type: 'txt', msg: "tu trouves tes réponses", sender: "performer"}
+            { type: 'txt', msg: "le kiff absolu", sender: "performer"}
+            { type: 'txt', msg: "l'extase ", sender: "performer"}
+            { type: 'txt', msg: "tu passes de l'objet au sujet", sender: "performer"}
         ],
         "replies": [
                         {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
             },
             {
@@ -470,8 +481,8 @@ const all_messages = {
                 reply: "si, une fois je me suis fait plaquer"
             },
             {
-                id: "silence",
-                txt: "...",
+                 id: "silence",
+                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
                 reply: "exactement"
             },
             {
@@ -481,7 +492,7 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
@@ -499,16 +510,22 @@ const all_messages = {
     "combat": {
         "name": "combat",
         "messages": [
-            { type: 'txt', msg: "", sender: "performer"},
-            { type: 'txt', msg: "", sender: "performer"},
-            { type: 'txt', msg: "", sender: "performer"},
-            { type: 'txt', msg: "", sender: "performer"},
-            { type: 'txt', msg: "", sender: "performer"},
+            { type: 'txt', msg: "J'aime pas me battre, mais je sais cogner", sender: "performer"}
+            { type: 'txt', msg: "jamais j'attaque", sender: "performer"}
+            { type: 'txt', msg: "j'esquive, je fuis", sender: "performer"}
+            { type: 'txt', msg: "parceque tu sais que si tu te défend, ça va te retomber dessus", sender: "performer"}
+            { type: 'txt', msg: "alors t'apprends à être mobile,", sender: "performer"}
+            { type: 'txt', msg: "c'est stylé de faire du Parkour maintenant", sender: "performer"}
+            { type: 'txt', msg: "de faire de le YAMAKASI", sender: "performer"}
+            { type: 'txt', msg: "quand j'étais gosse c'etait surtout le luxe des plus sportif,", sender: "performer"}
+            { type: 'txt', msg: "pour éviter les embrouilles, echapper aux flics", sender: "performer"}
+            { type: 'txt', msg: "même adulte quand j'arrive quelque part, je repère toujours les endroits inaccessible", sender: "performer"}
+            { type: 'txt', msg: "au cas ou je dois me sauver", sender: "performer"}
         ],
         "replies": [
                         {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
             },
             {
@@ -527,8 +544,8 @@ const all_messages = {
                 reply: "si, une fois je me suis fait plaquer"
             },
             {
-                id: "silence",
-                txt: "...",
+                 id: "silence",
+                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
                 reply: "exactement"
             },
             {
@@ -538,7 +555,7 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
@@ -571,7 +588,7 @@ const all_messages = {
         "replies": [
                         {
                 id: "famille",
-                txt: "farid ?",
+                txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
             },
             {
@@ -590,8 +607,8 @@ const all_messages = {
                 reply: "si, une fois je me suis fait plaquer"
             },
             {
-                id: "silence",
-                txt: "...",
+                 id: "silence",
+                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
                 reply: "exactement"
             },
             {
@@ -601,7 +618,7 @@ const all_messages = {
             },
             {
                 id: "séduction",
-                txt: "t'es pas mal.",
+                txt: "t'es pas mal, tu me plais bien.",
                 reply: "tu trouves ?"
             },
             {
