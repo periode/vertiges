@@ -32,6 +32,7 @@ const all_messages = {
                 id: "famille",
                 txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
+                
             },
             {
                 id: "prolétaire",
@@ -92,6 +93,7 @@ const all_messages = {
                 id: "famille",
                 txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
+                
             },
             {
                 id: "prolétaire",
@@ -152,6 +154,7 @@ const all_messages = {
                 id: "famille",
                 txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
+                        },
             {
                 id: "prolétaire",
                 txt: "chorégraphe ?",
@@ -210,6 +213,7 @@ const all_messages = {
                 id: "famille",
                 txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
+                
             },
             {
                 id: "prolétaire",
@@ -265,7 +269,7 @@ const all_messages = {
             { type: 'txt', msg: "qui ne laisse pas ton bassin se dégager", sender: "performer"},
             { type: 'txt', msg: "y'a ceux qui aiment ça", sender: "performer"},
             { type: 'txt', msg: "y'a ceux qui trouvent ça bizarre", sender: "performer"},
-            { type: 'txt', msg: "Ça nous arrive à tous de jouer ce jeu de con", sender: "performer"}
+            { type: 'txt', msg: "Ça nous arrive à tous de jouer ce jeu de con", sender: "performer"},
             { type: 'txt', msg: "des fois j'ai juste besoin de me sentir comprimer", sender: "performer"}
         ],
         "replies": [
@@ -327,8 +331,8 @@ const all_messages = {
             { type: 'txt', msg: "et que même si t'as envie", sender: "performer"},
             { type: 'txt', msg: "t'es pas complètement sûr d'où sont les limites", sender: "performer"},
             { type: 'txt', msg: "ça dépend d'où, de qui, de quand", sender: "performer"},
-            { type: 'txt', msg: "c'est jamais toi qui décide", sender: "performer"}
-            { type: 'txt', msg: "même pour toi, pour les tiens", sender: "performer"}
+            { type: 'txt', msg: "c'est jamais toi qui décide", sender: "performer"},
+            { type: 'txt', msg: "même pour toi, pour les tiens", sender: "performer"},
             { type: 'txt', msg: "mais donc bon", sender: "performer"},
             { type: 'txt', msg: "t'avance", sender: "performer"},
             { type: 'txt', msg: "un peu à tâtons", sender: "performer"},
@@ -389,14 +393,14 @@ const all_messages = {
             { type: 'txt', msg: "même dans la danse, on a des catégories", sender: "performer"},
             { type: 'txt', msg: "moi aussi", sender: "performer"},
             { type: 'txt', msg: "mon corps a des catégories", sender: "performer"},
-            { type: 'txt', msg: "Fallait rentrer dans le moule", sender: "performer"}
+            { type: 'txt', msg: "Fallait rentrer dans le moule", sender: "performer"},
             { type: 'txt', msg: "autant que dire que je fais pas de ballet", sender: "performer"},
             { type: 'txt', msg: "enfin, si, j'en ai fait, du ballet", sender: "performer"},
             { type: 'txt', msg: "mais tu vois ce que je veux dire", sender: "performer"},
             { type: 'txt', msg: "quand t'es un touche à tout, c'est chaud de se sentir légitime", sender: "performer"},
             { type: 'txt', msg: "souvent imposteur", sender: "performer"},
             { type: 'txt', msg: "jte jure*", sender: "performer"},
-            { type: 'txt', msg: "Aujourd'hui j'ai envie de tout mixer", sender: "performer"}
+            { type: 'txt', msg: "Aujourd'hui j'ai envie de tout mixer", sender: "performer"},
             { type: 'txt', msg: "J'men Balek", sender: "performer"}
         ],
         "replies": [
@@ -404,6 +408,7 @@ const all_messages = {
                 id: "famille",
                 txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
+                
             },
             {
                 id: "prolétaire",
@@ -450,20 +455,21 @@ const all_messages = {
     "extase": {
         "name": "extase",
         "messages": [
-            { type: 'txt', msg: "Y'a quand même un truc jouissif à contrer l'adversité", sender: "performer"}
-            { type: 'txt', msg: "quand tu captes que ça va être compliqué, mais que tu trouves des solutions", sender: "performer"}
-            { type: 'txt', msg: "C'est un truc un peu maso, c'est vrai", sender: "performer"}
-            { type: 'txt', msg: "C'est libérateur quand dans la douleur et la contrainte", sender: "performer"}
-            { type: 'txt', msg: "tu trouves tes réponses", sender: "performer"}
-            { type: 'txt', msg: "le kiff absolu", sender: "performer"}
-            { type: 'txt', msg: "l'extase ", sender: "performer"}
+            { type: 'txt', msg: "Y'a quand même un truc jouissif à contrer l'adversité", sender: "performer"},
+            { type: 'txt', msg: "quand tu captes que ça va être compliqué, mais que tu trouves des solutions", sender: "performer"},
+            { type: 'txt', msg: "C'est un truc un peu maso, c'est vrai", sender: "performer"},
+            { type: 'txt', msg: "C'est libérateur quand dans la douleur et la contrainte", sender: "performer"},
+            { type: 'txt', msg: "tu trouves tes réponses", sender: "performer"},
+            { type: 'txt', msg: "le kiff absolu", sender: "performer"},
+            { type: 'txt', msg: "l'extase ", sender: "performer"},
             { type: 'txt', msg: "tu passes de l'objet au sujet", sender: "performer"}
         ],
         "replies": [
-                        {
+            {
                 id: "famille",
                 txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
+                
             },
             {
                 id: "prolétaire",
@@ -510,23 +516,24 @@ const all_messages = {
     "combat": {
         "name": "combat",
         "messages": [
-            { type: 'txt', msg: "J'aime pas me battre, mais je sais cogner", sender: "performer"}
-            { type: 'txt', msg: "jamais j'attaque", sender: "performer"}
-            { type: 'txt', msg: "j'esquive, je fuis", sender: "performer"}
-            { type: 'txt', msg: "parceque tu sais que si tu te défend, ça va te retomber dessus", sender: "performer"}
-            { type: 'txt', msg: "alors t'apprends à être mobile,", sender: "performer"}
-            { type: 'txt', msg: "c'est stylé de faire du Parkour maintenant", sender: "performer"}
-            { type: 'txt', msg: "de faire de le YAMAKASI", sender: "performer"}
-            { type: 'txt', msg: "quand j'étais gosse c'etait surtout le luxe des plus sportif,", sender: "performer"}
-            { type: 'txt', msg: "pour éviter les embrouilles, echapper aux flics", sender: "performer"}
-            { type: 'txt', msg: "même adulte quand j'arrive quelque part, je repère toujours les endroits inaccessible", sender: "performer"}
+            { type: 'txt', msg: "J'aime pas me battre, mais je sais cogner", sender: "performer"},
+            { type: 'txt', msg: "jamais j'attaque", sender: "performer"},
+            { type: 'txt', msg: "j'esquive, je fuis", sender: "performer"},
+            { type: 'txt', msg: "parceque tu sais que si tu te défend, ça va te retomber dessus", sender: "performer"},
+            { type: 'txt', msg: "alors t'apprends à être mobile,", sender: "performer"},
+            { type: 'txt', msg: "c'est stylé de faire du Parkour maintenant", sender: "performer"},
+            { type: 'txt', msg: "de faire de le YAMAKASI", sender: "performer"},
+            { type: 'txt', msg: "quand j'étais gosse c'etait surtout le luxe des plus sportif,", sender: "performer"},
+            { type: 'txt', msg: "pour éviter les embrouilles, echapper aux flics", sender: "performer"},
+            { type: 'txt', msg: "même adulte quand j'arrive quelque part, je repère toujours les endroits inaccessible", sender: "performer"},
             { type: 'txt', msg: "au cas ou je dois me sauver", sender: "performer"}
         ],
         "replies": [
-                        {
+            {
                 id: "famille",
                 txt: "farid Ayelem ?",
                 reply: "ouais ça vient de haute-savoie"
+                
             },
             {
                 id: "prolétaire",
