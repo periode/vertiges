@@ -154,6 +154,12 @@ a:visited{
 
 .replies{
     display: flex;
+    flex-wrap: wrap;
+}
+
+.reply {
+    margin: 10px;
+    width: 30%;
 }
 
 .sequence:hover{

@@ -65,14 +65,15 @@
                             <div class="message" v-for="msg in seq.messages">
                                 <div class="type">{{ msg.type }}</div>
                                 <div class="msg">{{ msg.msg ? msg.msg : '-'}}</div>
-                                <div class="src">{{msg.src ? msg.src : '-'}}</div>
+                                <div class="src" v-if="msg.src">{{msg.src}}</div>
                             </div>
                         </div>
                         <hr>
+                        <h3>réponses</h3>
                         <div class="replies">
                             <div class="reply" v-for="reply in seq.replies">
-                                <div>{{ reply.txt }}</div>
-                                <div>{{ reply.reply }}</div>
+                                <div>- {{ reply.txt }}</div>
+                                <div>- {{ reply.reply }}</div>
                             </div>
                         </div>
                     </div>
