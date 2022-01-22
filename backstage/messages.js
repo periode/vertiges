@@ -40,43 +40,38 @@ const all_messages = {
             },
             {
                 id: "embrassade",
-                txt: "queer ?",
-                reply: "tu crois ? on dirait pas pourtant"
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "tu t'es pas fait casser la gueule?",
-                reply: "ouais, si, une fois je me suis fait plaquer"
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
@@ -95,53 +90,48 @@ const all_messages = {
         "replies": [
             {
                 id: "famille",
-                txt: "",
-                reply: ""
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
-                txt: "",
-                reply: ""
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
             },
             {
                 id: "embrassade",
-                txt: "",
-                reply: ""
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "",
-                reply: ""
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
@@ -158,55 +148,50 @@ const all_messages = {
             { type: 'txt', msg: "le genre de contrainte qui te plaquent contre le mur", sender: "performer"},
         ],
         "replies": [
-            {
+                        {
                 id: "famille",
-                txt: "",
-                reply: ""
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
-                txt: "",
-                reply: ""
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
             },
             {
                 id: "embrassade",
-                txt: "",
-                reply: ""
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "",
-                reply: ""
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
@@ -222,55 +207,50 @@ const all_messages = {
             { type: 'txt', msg: "je l'ai échappée belle", sender: "performer"},
         ],
         "replies": [
-            {
+                        {
                 id: "famille",
-                txt: "",
-                reply: ""
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
-                txt: "",
-                reply: ""
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
             },
             {
                 id: "embrassade",
-                txt: "",
-                reply: ""
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "",
-                reply: ""
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
@@ -287,55 +267,50 @@ const all_messages = {
             { type: 'txt', msg: "y'a ceux qui trouvent ça bizarre", sender: "performer"},
         ],
         "replies": [
-            {
+                        {
                 id: "famille",
-                txt: "",
-                reply: ""
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
-                txt: "",
-                reply: ""
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
             },
             {
                 id: "embrassade",
-                txt: "",
-                reply: ""
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "",
-                reply: ""
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
@@ -356,55 +331,50 @@ const all_messages = {
             { type: 'txt', msg: "un peu par saccades", sender: "performer"},
         ],
         "replies": [
-            {
+                        {
                 id: "famille",
-                txt: "",
-                reply: ""
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
-                txt: "",
-                reply: ""
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
             },
             {
                 id: "embrassade",
-                txt: "",
-                reply: ""
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "",
-                reply: ""
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
@@ -422,55 +392,50 @@ const all_messages = {
             { type: 'txt', msg: "jte jure*", sender: "performer"},
         ],
         "replies": [
-            {
+                        {
                 id: "famille",
-                txt: "",
-                reply: ""
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
-                txt: "",
-                reply: ""
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
             },
             {
                 id: "embrassade",
-                txt: "",
-                reply: ""
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "",
-                reply: ""
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
@@ -484,55 +449,50 @@ const all_messages = {
             { type: 'txt', msg: "", sender: "performer"},
         ],
         "replies": [
-            {
+                        {
                 id: "famille",
-                txt: "",
-                reply: ""
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
-                txt: "",
-                reply: ""
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
             },
             {
                 id: "embrassade",
-                txt: "",
-                reply: ""
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "",
-                reply: ""
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
@@ -546,55 +506,50 @@ const all_messages = {
             { type: 'txt', msg: "", sender: "performer"},
         ],
         "replies": [
-            {
+                        {
                 id: "famille",
-                txt: "",
-                reply: ""
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
-                txt: "",
-                reply: ""
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
             },
             {
                 id: "embrassade",
-                txt: "",
-                reply: ""
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "",
-                reply: ""
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
@@ -614,55 +569,50 @@ const all_messages = {
             { type: 'txt', msg: "et pourquoi pas?", sender: "performer"},
         ],
         "replies": [
-            {
+                        {
                 id: "famille",
-                txt: "",
-                reply: ""
+                txt: "farid ?",
+                reply: "ouais ça vient de haute-savoie"
             },
             {
                 id: "prolétaire",
-                txt: "",
-                reply: ""
+                txt: "chorégraphe ?",
+                reply: "à la base j'étais plutôt pas censé faire ça"
             },
             {
                 id: "embrassade",
-                txt: "",
-                reply: ""
+                txt: "ca va ?",
+                reply: "un peu seul en ce moment"
             },
             {
                 id: "arrestation",
-                txt: "",
-                reply: ""
+                txt: "t'as jamais eu de problème ?",
+                reply: "si, une fois je me suis fait plaquer"
             },
             {
                 id: "silence",
-                txt: "",
-                reply: ""
+                txt: "...",
+                reply: "exactement"
             },
             {
                 id: "oriental",
-                txt: "",
-                reply: ""
+                txt: "et tes origines ?",
+                reply: "tu veux dire mes racines ?"
             },
             {
                 id: "séduction",
-                txt: "",
-                reply: ""
-            },
-            {
-                id: "silence",
-                txt: "",
-                reply: ""
+                txt: "t'es pas mal.",
+                reply: "tu trouves ?"
             },
             {
                 id: "extase",
-                txt: "",
-                reply: ""
+                txt: "t'as des passions ?",
+                reply: "ouais, la nuit, je m'amuse."
             },
             {
                 id: "combat",
-                txt: "",
-                reply: ""
+                txt: "ça crée des problèmes, tout ça.",
+                reply: "crois-moi, je sais."
             }
         ]
     },
