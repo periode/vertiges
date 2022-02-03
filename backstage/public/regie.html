@@ -32,6 +32,10 @@
                         <h3>Public</h3>
                         <div>→ {{ clients }}</div>
                     </div>
+                    <div class="history">
+                        <h3>Déroulement</h3>
+                        <div v-for="h in history">{{ h }}</div>
+                    </div>
                 </div>
                 <hr>
                 <div class="btn-holder">

@@ -6,6 +6,7 @@ let init = () => {
             logs: [],
             time: null,
             sequences: [],
+            history: [],
             pollInterval: null,
             results: {},
             next: null,
@@ -19,10 +20,12 @@ let init = () => {
                             'Authorization': 'Basic vertiges'
                         }
                     }).then(res => {
-                        if (res.ok)
+                        if (res.ok){
                             this.log('info', `/${_cue}?${_query}=${_param} - ${res.status}`)
-                        else
+                            this.history.push(_param)
+                        }else{
                             this.log('error', `/${_cue}?${_query}=${_param} - ${res.status}`)
+                        }
                     }).catch(err => {
                         this.log('error', err)
                     })
