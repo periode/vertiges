@@ -161,6 +161,11 @@ app.get('/set', (req, res) => {
     res.sendStatus(200)
 })
 
+app.get('/reset', (req, res) => {
+    log('info', 'GET /reset')
+    next_sequence = "..."
+})
+
 //-- for farid to get the next sequence
 app.get('/status', (req, res) => {
     log('info', `GET /status`)

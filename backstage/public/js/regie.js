@@ -80,6 +80,13 @@ let init = () => {
                 let timestamp = `${this.time.getHours()}:${this.time.getMinutes()}:${this.time.getSeconds()}`
                 this.logs.unshift({ ts: timestamp, type: _type, msg: _msg })
             },
+            sendReset: function() {
+                fetch('/reset')
+                .then((res => {
+                    if(res.ok) this.log('info', 'plateau réinitialisé')
+                    else this.log('error', 'erreur de réinitialisation plateau')
+                }))
+            },
             poll: function () {
                 fetch('/poll')
                     .then((res => { return res.json() }))
