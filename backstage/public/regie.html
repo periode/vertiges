@@ -33,8 +33,14 @@
                         <div>→ {{ clients }}</div>
                     </div>
                 </div>
-
-                <button class="poll-btn" @click="togglePoll($event)">lancer sondage</button>
+                <hr>
+                <div class="btn-holder">
+                    <button class="poll-btn" @click="togglePoll($event)">lancer sondage</button>
+                    <button class="poll-btn" @click="play_all()">lancer le son</button>
+                    <button class="poll-btn" @click="mute_all()">couper le son</button>
+                    <button class="poll-btn" @click="rideau()">rideau</button>
+                </div>
+                <hr>
                 <div class="results">
                     <div v-if="Object.keys(results).length === 0">Aucun résultat.</div>
                     <div class="result" v-for="(value, key) in results" :style="'order: '+value">
@@ -43,13 +49,12 @@
                         <button @click="setNext(key)">lancer</button>
                     </div>
                 </div>
-                <hr>
-                <button class="poll-btn" @click="play_all()">lancer le son</button>
-                <button class="poll-btn" @click="mute_all()">couper le son</button>
-                <hr>
-                <button class="poll-btn" @click="rideau()">rideau</button>
-
-                <hr>
+                <div class="list">
+                    <div class="result" v-for="seq in sequences">
+                        <div :class="seq.allowed ? 'allowed' : 'disallowed'">{{ seq.name }}</div>
+                        <button @click="setNext(seq.name)">lancer</button>
+                    </div>
+                </div>
                 <h2>LOG</h2>
                 <ul class="logger">
                     <li v-for="log in logs" :class="'log '+log.type">{{ `[${log.ts}] ${log.msg}` }}</li>
@@ -59,23 +64,35 @@
             <div class="sequences">
                 <h2>SÉQUENCES</h2>
                 <div class="sequence-holder">
-                    <div class="sequence" v-for="seq in sequences" @click="cue('cue', 'sequence', seq.name)">
-                        <div class="sequence-name">{{ seq.name }}</div>
-                        <div class="messages">
-                            <div class="message" v-for="msg in seq.messages">
-                                <div class="type">{{ msg.type }}</div>
-                                <div class="msg">{{ msg.msg ? msg.msg : '-'}}</div>
-                                <div class="src" v-if="msg.src">{{msg.src}}</div>
+                    <div class="sequence" v-for="seq in sequences">
+                        <details>
+                            <summary>
+                                <div class="sequence-name">{{ seq.name }}</div>
+                                <div class="seq-audio">{{seq.audio ? seq.audio : 'silence'}}</div>
+                            </summary>
+                            <div class="seq-content">
+                                <div class="messages">
+                                    <div class="message" v-for="msg in seq.messages">
+                                        <div class="type">{{ msg.type }}</div>
+                                        <div class="msg">{{ msg.msg ? msg.msg : '-'}}</div>
+                                        <div class="src" v-if="msg.src">{{msg.src}}</div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <h3>réponses</h3>
+                                <div class="replies">
+                                    <div class="reply" v-for="reply in seq.replies">
+                                        <div>- {{ reply.txt }}</div>
+                                        <div>- {{ reply.reply }}</div>
+                                    </div>
+                                </div>
                             </div>
+                        </details>
+                    
+                        <div class="seq-actions">
+                            <button @click="cue('cue', 'sequence', seq.name)">lancer</button>
                         </div>
-                        <hr>
-                        <h3>réponses</h3>
-                        <div class="replies">
-                            <div class="reply" v-for="reply in seq.replies">
-                                <div>- {{ reply.txt }}</div>
-                                <div>- {{ reply.reply }}</div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

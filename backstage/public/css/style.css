@@ -13,7 +13,7 @@ body{
     padding: 0;
     background-color: #111;
     color: whitesmoke;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 header, footer, main{
@@ -59,6 +59,10 @@ button:hover{
     background-color: white;
 }
 
+summary{
+    cursor: help;
+}
+
 footer{
     position: absolute;
     bottom: 0;
@@ -87,9 +91,13 @@ a:visited{
 }
 
 .poll-btn{
-    width: 100%;
+    flex-grow: 1;
     min-width: 100px;
-    margin: 10px 0px 10px 0px;
+    margin: 10px;
+}
+
+.btn-holder{
+    display: flex;
 }
 
 .sequences, .state{
@@ -123,14 +131,37 @@ a:visited{
     font-size: 0.9rem;
 }
 
+.allowed{
+    font-weight: bold;
+}
+
+.disallowed {
+    text-decoration: line-through;
+    opacity: 0.9;
+}
+
 .sequence {
+    display: flex;
+    justify-content: space-between;
     border-left: 1px solid white;
     background-color: #111;
     color: white;
     padding:1rem;
+    margin-bottom: 1rem;
+}
+
+.seq-actions button{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding:1rem;
     cursor: pointer;
     transition: 0.1s linear all;
-    margin-bottom: 1rem;
+}
+
+.seq-actions button:hover{
+    color: black;
+    background-color: white;
 }
 
 .message{
@@ -145,7 +176,7 @@ a:visited{
 
 .msg{
     text-align: left;
-    width: 50%;   
+    /* width: 50%;    */
 }
 
 .src {
@@ -162,15 +193,11 @@ a:visited{
     width: 30%;
 }
 
-.sequence:hover{
-    background-color: white;
-    color: black;
-}
-
 .sequence-name, .state-name {
     font-size: 1.4em;
     text-decoration: underline;
     margin-bottom: 1rem;
+    display: inline-block;
 }
 
 .logger{

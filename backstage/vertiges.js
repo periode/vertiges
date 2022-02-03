@@ -91,13 +91,11 @@ app.get('/subscribe', (req, res) => {
 let votes = {}
 
 app.get('/reply', (req, res) => {
-    log('info', `GET /reply`)
+    log('info', `GET /reply ${req.query.id}`)
     if (!isAuthorized(req)) {
         res.sendStatus(403)
         return
     }
-
-    log('debug', `received reply: ${req.query.id}`);
 
     if (!(req.query.id in votes)){
 	    let new_entry = {}

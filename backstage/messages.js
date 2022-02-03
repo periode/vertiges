@@ -1,6 +1,8 @@
 const all_messages = {
     "introduction": {
         "name": "introduction",
+        "allowed": true,
+        "audio": "Just (After Song of Songs)",
         "messages": [
             { type: 'txt', msg: "je me souvient de l'histoire de ce mec qui tombe d'un immeuble de 50 étages. Qu'au fur et à mesure il se disait que l'importance c'était pas la chute...", sender: "performer"},
             { type: 'txt', msg: "mais l'atterissage.", sender: "performer"},
@@ -52,7 +54,7 @@ const all_messages = {
             {
                 id: "silence",
                 txt: "tu te sens investi ?",
-                reply: "Souvent quand ça me concerne j'ai pris l'habitude de me taire"
+                reply: "faut prendre l'habitude de se taire."
             },
             {
                 id: "oriental",
@@ -76,7 +78,8 @@ const all_messages = {
             }
         ]
     },
-    "famille": {
+    "famille": { //-- YES roue cyr
+        "allowed": true,
         "name": "famille",
         "messages": [
             { type: 'txt', msg: "je me souviens d'une histoire qui commence par:", sender: "performer"},
@@ -112,7 +115,7 @@ const all_messages = {
             },
             {
                 id: "silence",
-                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
+                txt: "faut prendre l'habitude de se taire.",
                 reply: "exactement"
             },
             {
@@ -137,8 +140,9 @@ const all_messages = {
             }
         ]
     },
-    "arrestation": {
+    "arrestation": { //-- nope
         "name": "arrestation",
+        "allowed": false,
         "messages": [
             { type: 'txt', msg: "il y a différentes manières de contraindre quelqu'un", sender: "performer"},
             { type: 'txt', msg: "les attentes des gens qui t'entourent", sender: "performer"},
@@ -197,8 +201,10 @@ const all_messages = {
             }
         ]
     },
-    "prolétaire": {
+    "prolétaire": { //-- YES
         "name": "prolétaire",
+        "allowed": true,
+        "audio": "November",
         "messages": [
             { type: 'txt', msg: "parfois je me fais mal", sender: "performer"},
             { type: 'txt', msg: "c'est marrant, plus tu vieillis, plus tu te fais mal quand tu fais un faux-mouvement", sender: "performer"},
@@ -232,7 +238,7 @@ const all_messages = {
             },
             {
                id: "silence",
-                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
+                txt: "faut prendre l'habitude de se taire.",
                 reply: "exactement"
             },
             {
@@ -257,8 +263,10 @@ const all_messages = {
             }
         ]
     },
-    "embrassade": { //-- love me tender
+    "embrassade": { //-- YES jumeler avec seduction
         "name": "embrassade",
+        "allowed": true,
+        "audio": "Whole Lot Money",
         "messages": [
             { type: 'txt', msg: "tes mains sur ma peau", sender: "performer"},
             { type: 'txt', msg: "mes levrès sur tes lèvres", sender: "performer"},
@@ -295,7 +303,7 @@ const all_messages = {
             },
             {
                  id: "silence",
-                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
+                txt: "faut prendre l'habitude de se taire.",
                 reply: "exactement"
             },
             {
@@ -320,8 +328,10 @@ const all_messages = {
             }
         ]
     },
-    "silence": {
+    "silence": { //-- YES danse pop lock
         "name": "silence",
+        "allowed": true,
+        "audio": "Futo",
         "messages": [
             { type: 'txt', msg: "quand t'es gamin t'as envie de bouger", sender: "performer"},
             { type: 'txt', msg: "mais t'as pas toujours le droit", sender: "performer"},
@@ -362,7 +372,7 @@ const all_messages = {
             },
             {
                  id: "silence",
-                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
+                txt: "faut prendre l'habitude de se taire.",
                 reply: "exactement"
             },
             {
@@ -387,8 +397,10 @@ const all_messages = {
             }
         ]
     },
-    "oriental": {
+    "oriental": {//-- YES derviche
         "name": "oriental",
+        "allowed": true,
+        "audio": "Rabbi",
         "messages": [
             { type: 'txt', msg: "même dans la danse, on a des catégories", sender: "performer"},
             { type: 'txt', msg: "moi aussi", sender: "performer"},
@@ -427,7 +439,7 @@ const all_messages = {
             },
             {
                  id: "silence",
-                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
+                txt: "faut prendre l'habitude de se taire.",
                 reply: "exactement"
             },
             {
@@ -452,8 +464,9 @@ const all_messages = {
             }
         ]
     },
-    "extase": {
+    "extase": { //-- YES danse verticale dans la structure, puis enchaine direct sur proletaire
         "name": "extase",
+        "allowed": false,
         "messages": [
             { type: 'txt', msg: "Y'a quand même un truc jouissif à contrer l'adversité", sender: "performer"},
             { type: 'txt', msg: "quand tu captes que ça va être compliqué, mais que tu trouves des solutions", sender: "performer"},
@@ -488,7 +501,7 @@ const all_messages = {
             },
             {
                  id: "silence",
-                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
+                txt: "faut prendre l'habitude de se taire.",
                 reply: "exactement"
             },
             {
@@ -513,8 +526,9 @@ const all_messages = {
             }
         ]
     },
-    "combat": {
+    "combat": { //-- pas certain
         "name": "combat",
+        "allowed": false,
         "messages": [
             { type: 'txt', msg: "J'aime pas me battre, mais je sais cogner", sender: "performer"},
             { type: 'txt', msg: "jamais j'attaque", sender: "performer"},
@@ -552,7 +566,7 @@ const all_messages = {
             },
             {
                  id: "silence",
-                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
+                txt: "faut prendre l'habitude de se taire.",
                 reply: "exactement"
             },
             {
@@ -577,8 +591,9 @@ const all_messages = {
             }
         ]
     },
-    "séduction": {
+    "séduction": { //-- pas sur
         "name": "séduction",
+        "allowed": false,
         "messages": [
             { type: 'txt', msg: "c'est quand même plus simple d'être gay à paris qu'en haute-savoie", sender: "performer"},
             { type: 'txt', msg: "enfin", sender: "performer"},
@@ -615,7 +630,7 @@ const all_messages = {
             },
             {
                  id: "silence",
-                txt: "Souvent quand ça me concerne j'ai pris l'habitude de me taire",
+                txt: "faut prendre l'habitude de se taire.",
                 reply: "exactement"
             },
             {
