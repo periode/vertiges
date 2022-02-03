@@ -213,6 +213,7 @@ const all_messages = {
             { type: 'txt', msg: "leur métier dans la chair", sender: "performer"},
             { type: 'txt', msg: "que la répétition chorégraphique de mon corps n'a aucun rapport avec l'aliénation du leur", sender: "performer"},
             { type: 'txt', msg: "je l'ai échappée belle", sender: "performer"},
+            { type: 'mp3', src: "https://static.enframed.net/vertiges/november.mp3", msg: "je l'ai échappée belle", sender: "performer"},
         ],
         "replies": [
                         {
