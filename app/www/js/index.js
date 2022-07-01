@@ -23,7 +23,6 @@ function onDeviceReady() {
             connectionStatus: 'hors ligne',
             hasStarted: false,
             localIndex: 0,
-            vibrate_time: 250,
             messages: [],
             replies: [
                 { txt: '', id: 'identity' },
@@ -62,7 +61,6 @@ function onDeviceReady() {
                 if (_reply.reply)
                     setTimeout(() => {
                         this.messages.unshift({ msg: _reply.reply, sender: "performer", type: 'txt', ts: this.getTimestamp() })
-                        navigator.vibrate(this.vibrate_time)
                         this.deactivateTyping()
                     }, 2000)
 
@@ -75,7 +73,6 @@ function onDeviceReady() {
                     _messages[this.localIndex].ts = this.getTimestamp()
                     this.messages.unshift(_messages[this.localIndex])
                     
-                    navigator.vibrate(this.vibrate_time)
                     this.localIndex++
 
                     setTimeout(() => { this.displayMessages(_messages, _replies) }, Math.random() * 2000 + 2500)

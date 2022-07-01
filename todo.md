@@ -1,5 +1,14 @@
 # todo
 
+## post show
+
+- [x] vibration (vibrations only work when the device is on, so it should be removed)
+- [ ] timing of messages controlled by server
+- [ ] localstorage + rideau
+- [ ] tout orchestrable depuis téléphone du plateau
+- [ ] bug sur la lecture des audios a distance -> résoudre par une addresse de _id=""_ de l'audio a jouer (plutot que le dernier de la liste)
+- [ ] envoyer les messages du public sur l'écran de farid pour savoir ce qui est lu/envoyé quand (miroir)
+
 - [ ] distribution
   - [x] remove the placeholder text
   - [x] finish the epilogue
