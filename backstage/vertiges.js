@@ -64,11 +64,11 @@ app.get('/subscribe', (req, res) => {
         }
     })
 
-    Stream.on("play", () => {
+    Stream.on("play", (_id) => {
         log('debug', `writing SSE: play`);
 	    try {
             if(!res.writeableFinished && !res.writableEnded)
-	            res.write(`data: ${JSON.stringify({play: true})}\n\n`)
+	            res.write(`data: ${JSON.stringify({play: true, id: _id})}\n\n`)
         } catch {
             log('error', 'attempting to play closed connection, skipping.')
         }
@@ -214,7 +214,10 @@ app.get('/play', (req, res) => {
         return
     }
 
-    Stream.emit("play")
+    let id = req.query.id
+    log('info', `playing audio with ID ${id}`)
+
+    Stream.emit("play", id)
     res.sendStatus(200)
 })
 

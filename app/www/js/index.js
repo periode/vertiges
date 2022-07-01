@@ -183,8 +183,8 @@ function onDeviceReady() {
                             player.src = ''
                         }
                     } else if (content.play) {
-                        let players = document.querySelectorAll('audio')
-                        players[players.length - 1].play()
+                        let player = document.getElementById(content.id)
+                        player.play()
                     } else if (content.curtain) {
                         this.status = 'epilogue'
                         this.epilogue = content.epilogue ? content.epilogue : "Visitez vertiges.enframed.net pour plus d'informations sur le spectacle!"

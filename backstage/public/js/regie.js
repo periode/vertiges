@@ -45,8 +45,8 @@ let init = () => {
                     this.log('error', err)
                 })
             },
-            play_all: function() {
-                fetch(`/play`,
+            play_all: function(_id) {
+                fetch(`/play?id=${_id}`,
                 {
                     headers: {
                         'Authorization': 'Basic vertiges'

@@ -8,9 +8,9 @@
 - [ ] envoyer les messages un par un
   - [ ] would be fixed by adding a notification event, and waiting for `onMessageReceived` in order to display messages
 - [ ] localstorage + rideau
-- [ ] tout orchestrable depuis téléphone du plateau
-- [ ] bug sur la lecture des audios a distance -> résoudre par une addresse de _id=""_ de l'audio a jouer (plutot que le dernier de la liste)
 - [ ] envoyer les messages du public sur l'écran de farid pour savoir ce qui est lu/envoyé quand (miroir)
+  - [ ] tout orchestrable depuis téléphone du plateau
+- [x] bug sur la lecture des audios a distance -> résoudre par une addresse de _id=""_ de l'audio a jouer (plutot que le dernier de la liste)
 
 - [ ] distribution
   - [x] remove the placeholder text

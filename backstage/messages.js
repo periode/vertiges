@@ -10,7 +10,7 @@ const all_messages = {
                 { type: 'txt', msg: "j'y ai cru longtemps", sender: "performer"},
                 { type: 'txt', msg: "mais si en fait l'important c'est la chute.", sender: "performer"},
                 { type: 'txt', msg: "qu'à force de focaliser sur le but, la destination, la fin, on en oubliait les moments d'existence.", sender: "performer"},
-                // { type: "mp3", msg: "", src: './media/cendres.mp3', sender: "performer"},
+                // { type: "mp3", msg: "", src: './media/cendres.mp3', id: "cendres", sender: "performer"},
                 { type: 'txt', msg: "on nous fait croire que tant qu'on survit à la chute, on s'en sortira.", sender: "performer"},
                 { type: 'txt', msg: "sans penser aux trajectoires et aux embûches d'un quotidien sclérosé.", sender: "performer"},
                 { type: 'txt', msg: "la chute comme métaphore d'une vie sans expérience, qui fonce à toute vitesse", sender: "performer"},
@@ -226,7 +226,7 @@ const all_messages = {
             ],
             [
                 { type: 'txt', msg: "je l'ai échappée belle", sender: "performer"},
-                { type: 'mp3', src: "https://static.enframed.net/vertiges/proletaire.mp3", msg: "je l'ai échappée belle", sender: "performer"}
+                { type: 'mp3', src: "https://static.enframed.net/vertiges/proletaire.mp3", msg: "je l'ai échappée belle", id: "proletaire", sender: "performer"}
             ]
         ],
         "replies": [
