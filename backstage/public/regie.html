@@ -19,7 +19,6 @@
             <h2><a href="/plateau.html" target="_blank" rel="noopener noreferrer">plateau</a></h2>
         </header>
         <main>
-            <!-- <button onclick="cue('cue', 'seqname', 'identity')">start</button> -->
             <div class="state">
                 <h2>ÉTAT</h2>
 
@@ -78,15 +77,17 @@
                     <div class="sequence" v-for="seq in sequences">
                         <details>
                             <summary>
-                                <div class="sequence-name">{{ seq.name }}</div>
+                                <div class="sequence-name">{{ seq.name }}</cu>
                                 <div class="seq-audio">{{seq.audio ? seq.audio : 'silence'}}</div>
                             </summary>
                             <div class="seq-content">
                                 <div class="messages">
-                                    <div class="message" v-for="msg in seq.messages">
-                                        <div class="type">{{ msg.type }}</div>
-                                        <div class="msg">{{ msg.msg ? msg.msg : '-'}}</div>
-                                        <div class="src" v-if="msg.src">{{msg.src}}</div>
+                                    <div v-for="partie in seq.messages">
+                                        <div class="message" v-for="msg in partie">
+                                            <div class="type">{{ msg.type }}</div>
+                                            <div class="msg">{{ msg.msg ? msg.msg : '-'}}</div>
+                                            <div class="src" v-if="msg.src">{{msg.src}}</div>
+                                        </div>
                                     </div>
                                 </div>
                                 <hr>
@@ -101,7 +102,7 @@
                         </details>
                     
                         <div class="seq-actions">
-                            <button @click="cue('cue', 'sequence', seq.name)">lancer</button>
+                            <button v-for="(msg, i) in seq.messages" @click="cue(seq.name, i)">lancer - {{ i + 1 }}</button>
                         </div>
 
                     </div>

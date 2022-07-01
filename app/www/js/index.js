@@ -40,7 +40,7 @@ function onDeviceReady() {
             sendReply: function (_reply) {
                 this.messages.unshift({ msg: _reply.txt, sender: "public", ts: this.getTimestamp() })
 
-                toggleReplies()
+                enableReplies(false)
                 this.replies = [{txt:'', id:''},{txt:'', id:''},{txt:'', id:''}]
 
                 this.activateTyping()
@@ -63,9 +63,9 @@ function onDeviceReady() {
                     setTimeout(() => {
                         this.messages.unshift({ msg: _reply.reply, sender: "performer", type: 'txt', ts: this.getTimestamp() })
                         this.deactivateTyping()
-                    }, this.msg_interval)
+                    }, this.msgInterval)
 
-                setTimeout(() => { document.getElementById("messages").classList.remove("not-scrollable") }, this.msg_interval * 1.1)
+                setTimeout(() => { document.getElementById("messages").classList.remove("not-scrollable") }, this.msgInterval * 1.1)
             },
             displayMessages: function (_messages, _replies) {
                 if (this.localIndex < _messages.length) {
@@ -76,13 +76,17 @@ function onDeviceReady() {
                     
                     this.localIndex++
 
-                    setTimeout(() => { this.displayMessages(_messages, _replies) }, Math.random() * 2000 + this.msg_interval)
+                    setTimeout(() => {
+                        this.displayMessages(_messages, _replies) 
+                        
+                        if(this.localIndex == _messages.length)
+                            this.deactivateTyping()
+                    }, Math.random() * 2000 + this.msgInterval)
                 } else {
-                    toggleReplies()
+                    if(_replies.length > 0)
+                        enableReplies(true)
                     this.replies = _replies
                     this.localIndex = 0
-
-                    this.deactivateTyping()
                 }
             },
             getTimestamp: function () {
@@ -204,7 +208,12 @@ function onDeviceReady() {
     })
 }
 
-let toggleReplies = () => {
-    Array.from(document.getElementsByClassName('reply'))
-        .map((el) => { el.disabled = el.disabled ? false : true })
+let enableReplies = (_state) => {
+    console.log('setting replies to', _state);
+    for (const el of document.getElementsByClassName('reply')) {
+        if(_state)
+            el.removeAttribute('disabled')
+        else
+            el.setAttribute('disabled', '')
+    }
 }

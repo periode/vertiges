@@ -13,18 +13,18 @@ let init = () => {
             clients: 0
         },
         methods: {
-            cue: function (_cue, _query, _param) {
-                fetch(`/${_cue}?${_query}=${_param}`,
+            cue: function (_name, _index) {
+                fetch(`/cue?sequence=${_name}&index=${_index}`,
                     {
                         headers: {
                             'Authorization': 'Basic vertiges'
                         }
                     }).then(res => {
                         if (res.ok){
-                            this.log('info', `/${_cue}?${_query}=${_param} - ${res.status}`)
-                            this.history.push(_param)
+                            this.log('info', `/cue?sequence=${_name}}&index=${_index} - ${res.status}`)
+                            this.history.push(_name)
                         }else{
-                            this.log('error', `/${_cue}?${_query}=${_param} - ${res.status}`)
+                            this.log('error', `/cue?sequence=${_name}}&index=${_index} - ${res.status}`)
                         }
                     }).catch(err => {
                         this.log('error', err)

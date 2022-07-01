@@ -42,8 +42,10 @@ app.get('/subscribe', (req, res) => {
     res.write(`data: ${JSON.stringify({ connected: true, msg_interval: MSG_INTERVAL })}\n\n`);
 
     Stream.on("push", (evt) => {
-        log('debug', `writing SSE: ${evt}`);
-        let payload = messages.pick(evt)
+        let sequence = evt.split(',')[0]
+        let index = evt.split(',')[1]
+        log('debug', `writing SSE: ${sequence} - ${index}`);
+        let payload = messages.pick(sequence, index)
         try {
             if(!res.writeableFinished && !res.writableEnded)    
 	            res.write(`data: ${JSON.stringify(payload)}\n\n`)
@@ -118,15 +120,21 @@ app.get('/cue', (req, res) => {
     }
 
     let seq = req.query.sequence
+    let index = req.query.index
 
     if (seq == undefined) {
         log('error', `sequence name is undefined`)
         res.status(400).send('the sequence parameter is not defined\n')
         return
     }
-    log('debug', `next cue: ${seq}`)
 
-    Stream.emit("push", `${seq}`)
+    if(index == undefined){
+        log('warn', `index is undefined, setting to 0`)
+        index = 0
+    }
+    log('debug', `next cue: ${seq} - ${index}`)
+
+    Stream.emit("push", `${seq},${index}`)
     trace.push(`launched cue: ${seq}`)
     votes = []
     res.send(`sent ${seq} to event stream\n`)
