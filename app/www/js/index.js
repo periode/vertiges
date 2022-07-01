@@ -8,9 +8,9 @@ function onDeviceReady() {
         el: '#app',
         data: {
             remote: {
-                url: 'vertiges.enframed.net',
-                protocol: 'https',
-                // url: 'localhost:4000',
+                // url: 'vertiges.enframed.net',
+                protocol: 'http',
+                url: 'localhost:4000',
                 endpoint: 'subscribe'
             },
             status: "prologue", // -- prologue, stage, epilogue
@@ -18,6 +18,7 @@ function onDeviceReady() {
             storage: null,
             source: null,
             connectInterval: 5,
+            msgInterval: 5000,
             typingInterval: null,
             typingIndicator: '',
             connectionStatus: 'hors ligne',
@@ -62,9 +63,9 @@ function onDeviceReady() {
                     setTimeout(() => {
                         this.messages.unshift({ msg: _reply.reply, sender: "performer", type: 'txt', ts: this.getTimestamp() })
                         this.deactivateTyping()
-                    }, 2000)
+                    }, this.msg_interval)
 
-                setTimeout(() => { document.getElementById("messages").classList.remove("not-scrollable") }, 2500)
+                setTimeout(() => { document.getElementById("messages").classList.remove("not-scrollable") }, this.msg_interval * 1.1)
             },
             displayMessages: function (_messages, _replies) {
                 if (this.localIndex < _messages.length) {
@@ -75,7 +76,7 @@ function onDeviceReady() {
                     
                     this.localIndex++
 
-                    setTimeout(() => { this.displayMessages(_messages, _replies) }, Math.random() * 2000 + 2500)
+                    setTimeout(() => { this.displayMessages(_messages, _replies) }, Math.random() * 2000 + this.msg_interval)
                 } else {
                     toggleReplies()
                     this.replies = _replies
@@ -150,7 +151,7 @@ function onDeviceReady() {
 
                 source = new EventSource(`${this.remote.protocol}://${this.remote.url}/${this.remote.endpoint}`)
 
-                source.onopen = () => {
+                source.onopen = (data) => {
                     console.log('...opened connection to remote server!')
                     this.connectionStatus = 'en ligne'
                 }
@@ -166,7 +167,7 @@ function onDeviceReady() {
 
                     let content = JSON.parse(event.data)
                     console.log(content);
-                    // console.log(content);
+                    
                     if (content.messages) {
                         document.getElementById("messages").classList.add("not-scrollable")
                         this.messages.unshift({ txt: '', type: "separator" })
@@ -184,6 +185,9 @@ function onDeviceReady() {
                         this.status = 'epilogue'
                         this.epilogue = content.epilogue ? content.epilogue : "Visitez vertiges.enframed.net pour plus d'informations sur le spectacle!"
                         console.warn("Not writing the status change to localStorage")
+                    }else if(content.connected){
+                        this.msgInterval = content.msg_interval
+                        console.log("Setting the message timeout to", this.msgInterval)
                     }
                 }
             }

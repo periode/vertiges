@@ -15,8 +15,9 @@ let total_clients = 0
 
 const AUTH_PW = 'vertiges'
 const DEBUG = true
+const MSG_INTERVAL = 5000
 
-EventEmitter.defaultMaxListeners = 100
+EventEmitter.defaultMaxListeners = 200
 
 app.use(express.static('./public'))
 app.use('*', cors());
@@ -38,7 +39,7 @@ app.get('/subscribe', (req, res) => {
     total_clients++
     log('debug', `new client, total: ${total_clients}`)
 
-    res.write(`data: ${JSON.stringify({ connected: true })}\n\n`);
+    res.write(`data: ${JSON.stringify({ connected: true, msg_interval: MSG_INTERVAL })}\n\n`);
 
     Stream.on("push", (evt) => {
         log('debug', `writing SSE: ${evt}`);
