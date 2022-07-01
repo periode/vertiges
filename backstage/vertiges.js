@@ -44,8 +44,16 @@ app.get('/subscribe', (req, res) => {
     Stream.on("push", (evt) => {
         let sequence = evt.split(',')[0]
         let index = evt.split(',')[1]
+
+        if(index == 1)
+            status.state = "replies available"
+        else
+            status.state = "monologue"
+
         log('debug', `writing SSE: ${sequence} - ${index}`);
         let payload = messages.pick(sequence, index)
+        status.messages = payload
+        
         try {
             if(!res.writeableFinished && !res.writableEnded)    
 	            res.write(`data: ${JSON.stringify(payload)}\n\n`)
@@ -158,6 +166,8 @@ app.get('/set', (req, res) => {
 
     trace.push(`armed cue: ${seq}`)
     next_sequence = seq
+    status.next = seq
+    status.state = "pause before next monologue"
 
     fs.writeFile('trace.txt', JSON.stringify(trace), (err) => {
         if (err)
@@ -175,10 +185,20 @@ app.get('/reset', (req, res) => {
     next_sequence = "..."
 })
 
+let status = {
+    state: "rien",
+    messages: [],
+    next: ""
+}
+
 //-- for farid to get the next sequence
 app.get('/status', (req, res) => {
     log('info', `GET /status`)
-    res.json({ next: next_sequence })
+    res.json(status)
+    //-- TODO get info about:
+    //-- status: monologue delivery, replies available, nothing
+    //-- messages: which one is being sent
+    //-- next: upcoming sequence
 })
 
 app.get('/get-all', (req, res) => {

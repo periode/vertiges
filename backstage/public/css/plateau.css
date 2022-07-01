@@ -87,3 +87,7 @@ button{
     color: grey;
     font-size: 12px;
 }
+
+.info{
+    margin: 1em;
+}

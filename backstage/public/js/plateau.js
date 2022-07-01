@@ -4,7 +4,11 @@ let init = () => {
     app = new Vue({
         el: '#app',
         data:{
-            next: null,
+            status: {
+                state: "aucun message en cours d'envoi",
+                messages: [],
+                next: "introduction"
+            },
             error: '',
             log: '',
         },
@@ -19,7 +23,7 @@ let init = () => {
     
                 })
                 .then(data => {
-                    this.next = data.next
+                    this.status = data.status
                     this.log = `dernière requête: ${this.getTimestamp()}`
                 })
             },
@@ -32,9 +36,8 @@ let init = () => {
                 return ts
             }
         },
-        
         mounted: function() {
-            this.updateStatus()
+            setTimeout(this.updateStatus, 1000)
         }
     })
 }
