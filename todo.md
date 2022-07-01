@@ -4,8 +4,9 @@
 
 - [x] vibration (vibrations only work when the device is on, so it should be removed)
 - [x] timing of messages controlled by server
-- [ ] séparer les messages en deux sélections (début scène, fin scène)
+- [x] séparer les messages en deux sélections (début scène, fin scène)
 - [ ] envoyer les messages un par un
+  - [ ] would be fixed by adding a notification event, and waiting for `onMessageReceived` in order to display messages
 - [ ] localstorage + rideau
 - [ ] tout orchestrable depuis téléphone du plateau
 - [ ] bug sur la lecture des audios a distance -> résoudre par une addresse de _id=""_ de l'audio a jouer (plutot que le dernier de la liste)
